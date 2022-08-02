@@ -98,8 +98,11 @@ class DB {
             
         // 如果沒有就是新增
         }else{
-            $sql = "INSERT INTO $this->table (`".join("`,`",array_keys($array))."`) VALUES ('".join(" ',' ",$array)."')";
+            // "INSERT INTO `b_quiz_2_title` (`img`, `text`) VALUES ('01B03.jpg' , '5678')";
+            $keys=join("`,`" , array_keys($array));
+            $values = join("','",$array);
 
+            $sql = "INSERT INTO $this->table (`$keys`) VALUES ('$values')";
         }
 
 
