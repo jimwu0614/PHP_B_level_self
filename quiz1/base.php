@@ -44,7 +44,7 @@ class DB {
             $sql .= $arg[1];
         }
         
-        echo $sql; 
+        // echo $sql; 
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -133,11 +133,11 @@ echo "</pre>";
 // 刪
 
 $Bottom = new DB('b_levelq1_bottom');
-$Ad = 
+
 
 //$sql = SELECT * FROM B_levelQ1_bottom where `id` = '1'
 // print_r($Bottom->all());                   //Array ( [0] => Array ( [id] => 1 [bottom] => 2022-07-20頁尾版權 ) [1] => Array ( [id] => 2 [bottom] => 2022-07-25 ) )
-print_r($Bottom->all(['id'=>1]));          //Array ( [0] => Array ( [id] => 1 [bottom] => 2022-07-20頁尾版權 ) )
+// print_r($Bottom->all(['id'=>1]));          //Array ( [0] => Array ( [id] => 1 [bottom] => 2022-07-20頁尾版權 ) )
 // print_r($Bottom->all(" where `id` = '1'"));   //Array ( [0] => Array ( [id] => 1 [bottom] => 2022-07-20頁尾版權 ) )
 
 ?>
