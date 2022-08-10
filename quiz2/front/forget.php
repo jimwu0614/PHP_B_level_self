@@ -1,12 +1,15 @@
 <style>
     .box{
-        width: 600px;
-        height: 400px;
+        width: 450px;
+        height: 180px;
         border: 1px solid black;
+    }
+    input{
+        width: 400px;
     }
 </style>
 <div class="box">
-    <h3>請輸入信箱</h3>
+    <h3>請輸入信箱以查詢密碼</h3>
     <input type="email" id="mail">
     <div id="res"></div>
     <button onclick="findpw()">尋找</button>

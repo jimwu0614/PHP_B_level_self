@@ -14,7 +14,7 @@ include "./base.php"
 	<script src="./js/jquery-1.9.1.min.js"></script>
 	<script src="./js/js.js"></script>
 	<script src="./SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
-<link href="./SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
+	<link href="./SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -24,8 +24,8 @@ include "./base.php"
 	<iframe name="back" style="display:none;"></iframe>
 	<div id="all">
 		<div id="title">
-			
-			<?=date('m 月 d 號 l')?>  | 今日瀏覽: 1 | 累積瀏覽: 36 </div>
+
+			<?= date('m 月 d 號 l') ?> | 今日瀏覽: 1 | 累積瀏覽: 36 </div>
 		<div id="title2">
 			<a href="./index.php"><img src="./icon/02B01.jpg" title="健康促進網-回首頁" alt="健康促進網-回首頁"></a>
 		</div>
@@ -41,26 +41,28 @@ include "./base.php"
 				<div>
 					<marquee behavior="" direction="" style="display: inline-block; width:75%;">請民眾踴躍投稿電子報，讓電子報成為大家相交流、分享的園地！詳見最新文章。</marquee>
 					<div style="width:18%; display:inline-block;  ">
-						<?php
-							if (isset($_SESSION['user'])) {
-						?>
-							歡迎，<?=$_SESSION['user']?><button style="display: inline;" onclick="location.href='./api/logout.php'">登出</button>
-						<?php
+				<?php
+						if (isset($_SESSION['user']) && $_SESSION['user'] == "admin") {
+				?>
+							歡迎，admin<br><button style="display: inline;" onclick="location.href='./back.php'">管理</button>|<button style="display: inline;" onclick="location.href='./api/logout.php'">登出</button>
+				<?php
+						} elseif (isset($_SESSION['user'])) {
+				?>
+							歡迎，<?= $_SESSION['user'] ?><button style="display: inline;" onclick="location.href='./api/logout.php'">登出</button>
+				<?php
+						} else {
+							echo '<a href="?do=login">會員登入</a>';
+						}
+				?>
 
 
-							}else{
-								echo '<a href="?do=login">會員登入</a>';
-							}
-						?>
-					
-					
 
 
 					</div>
 					<div class="container">
 						<?php
-						
-						$files = ($_GET['do'])??'main';
+
+						$files = ($_GET['do']) ?? 'main';
 						include "./front/$files.php"
 						?>
 					</div>

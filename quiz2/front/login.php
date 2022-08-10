@@ -45,11 +45,12 @@ function login(){
     $.post("./api/chkacc.php",{acc:acc},(res)=>{
         console.log(res);
         if (res==1) {
+            
             $.post("./api/chkpw.php",{acc:acc,pw:pw},(res2)=>{
-                console.log(res2);
+                console.log("res2"+res2);
                 if (res2==1) {
 
-                    let $_SESSION = acc;
+                    // let $_SESSION = acc;
                     if (acc==="admin") {
                         location.href ="./back.php";
                     }else{
