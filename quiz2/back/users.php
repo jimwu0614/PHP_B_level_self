@@ -27,7 +27,7 @@
 
 
     <div>
-        <form action="./api/deluser" method="POST">
+        <form action="./api/deluser.php" method="POST">
             
             <table class="table1">
                 <tr>
