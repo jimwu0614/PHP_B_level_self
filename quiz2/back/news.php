@@ -21,6 +21,8 @@
     .ct{
         margin: 3px 300px;
     }
+    
+
 </style>
 
 <form action="./api/editnews.php" method="post">
@@ -37,11 +39,12 @@
 
     <?php
 
-    $count = $News->math("count","id");
-    $page = ceil($count / 3);
-    // echo $page;
-    // $now = get['']
-    $news = $News->all();
+    $count = $News->math("count","id");  //共幾筆
+    $div = 3;                            //每頁有幾筆
+    $page = ceil($count / $div);            //共幾頁
+    $now = $_GET['p']??1;               //現在頁數
+    $start = ($now - 1)*3;              //每頁從第幾筆開始
+    $news = $News->all("limit $start , 3");
 
     // dd($news);
     foreach ($news as  $value) {
@@ -58,8 +61,42 @@
 
 
 </table>
- <input type="submit" value="確定修改" class="ct">
 
+    <div class="ct">
+<?php
+    if ($now - 1>0) {
+        $before = $now - 1
+?>
+    <a href="?do=news&p=<?=$before?>"><</a>
+<?php
+    }
+?>
+
+<?php
+    for ($i=1; $i <= $page; $i++) { 
+        $font = ($now==$i)?"24px":"18px";
+?>
+    <a style="font-size: <?=$font?>;" href="?do=news&p=<?=$i?>"><?=$i?></a>
+<?php
+    }
+
+?>
+
+
+
+
+<?php
+    if (($now + 1)<=$page) {
+        $after = $now + 1
+?>
+    <a href="?do=news&p=<?=$after?>">></a>
+<?php
+    }
+?>
+    </div>
     
+    <input type="submit" value="確定修改" class="ct">
+
+
 
 </form>
