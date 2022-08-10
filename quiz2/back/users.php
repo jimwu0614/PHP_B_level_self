@@ -8,6 +8,7 @@
     .table1{
         width: 80%;
         margin: 0px auto;
+        text-align: center;
     }
     .th1{
         width: 50%;
@@ -26,13 +27,26 @@
 
 
     <div>
-        <table class="table1">
-            <tr>
-                <td class="clo th1">帳號</td>
-                <td class="clo th2">密碼</td>
-                <td class="clo th3">刪除</td>
-            </tr>
-        </table>
+        <form action="./api/deluser" method="POST">
+            
+            <table class="table1">
+                <tr>
+                    <td class="clo th1">帳號</td>
+                    <td class="clo th2">密碼</td>
+                    <td class="clo th3">刪除</td>
+                </tr>
+                
+            </table>
+            <div style="margin: 0 auto; width: 170px;;">
+                <input type="submit" value="確定刪除">
+                <input type="reset" value="清空選取">
+            </div>
+        </form>
+            
+
+
+
+
     </div>
 
 
@@ -69,6 +83,10 @@
 
 
 <script>
+
+    $(document).ready(
+        getuser()
+    )
     function reg(){
         let acc = $('#acc').val();
         let pw = $('#pw').val();
@@ -84,13 +102,19 @@
                 alert("帳號重複")
             }else{
             $.post("./api/reg.php",{acc:acc,pw:pw,email:email},(res2)=>{
-            alert("註冊完成，歡迎加入");
-            location.href="?do=login";
+        
+            location.href="?do=users";
         })
 
             }
         })
 
+    }
 
+
+    function getuser(){
+        $.get("./api/getuser.php",(res)=>{
+            $(".table1").append(res)
+        })
     }
 </script>
