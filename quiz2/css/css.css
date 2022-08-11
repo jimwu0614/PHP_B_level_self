@@ -1,5 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
+
+*{
+	text-align: center;
+}
 body
 {
 	background:#E8E8E8;
@@ -299,7 +303,30 @@ cursor:default;
 }
 .container{
 	display: flex;
+	flex-wrap: wrap;
+}
+.ma{
+	margin: 0px auto;
 }
 .w100{
 	width: 100%;
+	margin: 0px auto;
+}
+.w80{
+	width: 80%;
+	
+}
+.w50{
+	width: 50%;
+
+}
+.flex{
+	display: flex;
+	justify-content: center;
+}
+.block{
+	display: block;
+}
+.blue{
+	color: blue;
 }

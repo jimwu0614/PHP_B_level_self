@@ -54,6 +54,7 @@
             <td><?=$value['title']?></td>
             <td><input type="checkbox" name="sh[]" value="<?=$value['id']?>" <?=($value['sh']==1)?'checked':''?> ></td>
             <td><input type="checkbox" name="del[]" value="<?=$value['id']?>"></td>
+            <input type="hidden" name="id[]" value="<?=$value['id']?>">
         </tr>
 <?php
     }
