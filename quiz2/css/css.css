@@ -297,3 +297,9 @@ cursor:default;
 	right:0px;
 	margin:auto;
 }
+.container{
+	display: flex;
+}
+.w100{
+	width: 100%;
+}

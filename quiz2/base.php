@@ -131,7 +131,7 @@ class DB{
 }
 $User = new DB('user');
 $News = new DB('news');
-
+$Que = new DB('que');
 
 ?>
 

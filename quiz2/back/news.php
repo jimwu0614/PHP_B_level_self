@@ -43,7 +43,7 @@
     $div = 3;                            //每頁有幾筆
     $page = ceil($count / $div);            //共幾頁
     $now = $_GET['p']??1;               //現在頁數
-    $start = ($now - 1)*3;              //每頁從第幾筆開始
+    $start = ($now - 1)*$div;              //每頁從第幾筆開始
     $news = $News->all("limit $start , 3");
 
     // dd($news);
