@@ -1,8 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
-
 *{
-	text-align: center;
+	/* text-align: center; */
 }
 body
 {
@@ -318,7 +317,12 @@ cursor:default;
 }
 .w50{
 	width: 50%;
-
+}
+.w30{
+	width: 30%;
+}
+.w20{
+	width: 20%;
 }
 .flex{
 	display: flex;
