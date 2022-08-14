@@ -68,7 +68,7 @@
             $before = $now - 1
         ?>
             <a href="?do=pop&p=<?= $before ?>">
-                << /a>
+                <</a>
                 <?php
             }
                 ?>
@@ -108,19 +108,25 @@
 
 
 
-    $(".great").on("click",function(){
-        let type = $(this).text();
-        let id = $(this).attr('id');
-        let num =parseInt($(this).siblings("span").text());
-        // console.log(typeof(num));
-        // console.log(type);
+$(".great").on("click",function(){
+    let type = $(this).text();
+    let id = $(this).attr('id');
+    let num =parseInt($(this).siblings("span").text());
+    console.log(type);
+    // console.log(id);
+
+    $.post("./api/good.php",{id,type},()=>{
         if (type=="讚") {
             $(this).text("收回讚");
             $(this).siblings("span").text(num+1);
         }else if(type=="收回讚"){
             $(this).text("讚");
             $(this).siblings("span").text(num-1);
-        }
+    }
+    })
+
 
     })
+
+
 </script>
