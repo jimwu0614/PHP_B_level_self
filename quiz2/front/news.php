@@ -1,3 +1,8 @@
+<style>
+        td>img{
+        width: 22px;
+    }
+</style>
 <fieldset class="w100 ">
     <legend>目前位置：首頁＞最新文章區</legend>
 
@@ -26,7 +31,21 @@
                     <span ><?= mb_substr($value['text'],0,20) ?>...</span>
                     <span  style='display:none'><?=nl2br($value['text']);?></span>
                 </td>
-                <td><?= $value['good'] ?>個人說讚</td>
+                <td >
+                            <?php
+                if(isset($_SESSION['user'])){
+                    if ($Log->math("count","id",['news'=>$value['id'],'user'=>$_SESSION['user']])) {
+                        echo "<span class='great blue' id='{$value['id']}'>收回讚</span>";
+                    }else{
+                        echo "<span class='great blue' id='{$value['id']}'>讚</span>";
+                    }
+                }
+                
+                
+                
+                
+                ?>
+                </td>
             </tr>
 
         <?php
@@ -72,4 +91,21 @@
         $(this).next().children().toggle();
     })
 
+
+
+    $(".great").on("click",function(){
+        let type = $(this).text();
+        let id = $(this).attr('id');
+        let num =parseInt($(this).siblings("span").text());
+        // console.log(typeof(num));
+        // console.log(type);
+        if (type=="讚") {
+            $(this).text("收回讚");
+            $(this).siblings("span").text(num+1);
+        }else if(type=="收回讚"){
+            $(this).text("讚");
+            $(this).siblings("span").text(num-1);
+        }
+
+    })
 </script>

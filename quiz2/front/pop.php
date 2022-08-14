@@ -39,7 +39,7 @@
                     <span><?= mb_substr($value['text'], 0, 20) ?>...</span>
                     <span class="modal"><p style="color: blue;"><?= $value['title'] ?></p> <?= nl2br($value['text']); ?></span>
                 </td>
-                <td ><?= $value['good'] ?>個人說 <img src="./icon/02B03.jpg" alt="">-
+                <td ><span class="num"><?= $value['good'] ?></span>個人說 <img src="./icon/02B03.jpg" alt="">-
                             <?php
                 if(isset($_SESSION['user'])){
                     if ($Log->math("count","id",['news'=>$value['id'],'user'=>$_SESSION['user']])) {
@@ -111,12 +111,15 @@
     $(".great").on("click",function(){
         let type = $(this).text();
         let id = $(this).attr('id');
-        console.log(id);
+        let num =parseInt($(this).siblings("span").text());
+        // console.log(typeof(num));
         // console.log(type);
         if (type=="讚") {
             $(this).text("收回讚");
+            $(this).siblings("span").text(num+1);
         }else if(type=="收回讚"){
             $(this).text("讚");
+            $(this).siblings("span").text(num-1);
         }
 
     })
