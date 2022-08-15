@@ -136,6 +136,7 @@ class DB{
 $Ad = new DB('b_quiz_1_ad');
 $Title = new DB('b_quiz_1_title');
 $Mvim = new DB('b_quiz_1_mvim');
+$Image = new DB('b_quiz_1_image');
 ?>
 
     

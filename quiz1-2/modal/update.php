@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
 }
 
 switch ($from) {
-    case 'title_update':
+    case 'Title_update':
 ?>
         <h1 class="cent">更新標題圖片</h1>
         <hr>
@@ -23,7 +23,7 @@ switch ($from) {
 <?php
         break;
 
-    case 'title_add':
+    case 'Title_add':
 ?>
         <h1 class="cent">新增標題圖片</h1>
         <hr>
@@ -44,7 +44,7 @@ switch ($from) {
 <?php
         break;
 
-    case 'ad':
+    case 'Ad':
 ?>
         <h1 class="cent">新增動態文字廣告</h1>
         <hr>
@@ -63,7 +63,7 @@ switch ($from) {
 <?php
         break;
 
-    case 'mvim_add':
+    case 'Mvim_add':
 ?>
         <h1 class="cent">新增動畫圖片</h1>
         <hr>
@@ -81,7 +81,7 @@ switch ($from) {
 <?php
         break;
 
-    case 'mvim_update':
+    case 'Mvim_update':
 ?>
         <h1 class="cent">更新動畫圖片</h1>
         <hr>
@@ -98,16 +98,37 @@ switch ($from) {
 <?php
         break;
 
-    case '__':
+    case 'Image_add':
 ?>
+        <h1 class="cent">新增校園映象圖片</h1>
+        <hr>
+        <form action="./api/upload.php" method="post" enctype="multipart/form-data" class="cent">
+            <label for="img">校園映象圖片:</label>
+            <input type="file" name="img" >
 
+            <input type="hidden" name="from" value="<?=$from?>">
+            <input type="hidden" name="id" value="<?=$id?>">
+            <br>
+            <input type="submit" value="新增">
+            <input type="reset" value="重置">
+        </form>
 
 <?php
         break;
 
-    case '__':
+    case 'Image_update':
 ?>
-
+        <h1 class="cent">更新校園映象圖片</h1>
+        <hr>
+        <form action="./api/upload.php" method="post" enctype="multipart/form-data" class="cent">
+            <label for="img">校園映象圖片:</label>
+            <input type="file" name="img" id="">
+            <input type="hidden" name="from" value="<?=$from?>">
+            <input type="hidden" name="id" value="<?=$id?>">
+            <br>
+            <input type="submit" value="更新">
+            <input type="reset" value="重置">
+        </form>
 
 <?php
         break;

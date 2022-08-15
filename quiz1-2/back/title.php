@@ -7,7 +7,7 @@
 
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">網站標題管理</p>
-    <form method="post"  action="./api/edittitle.php">
+    <form method="post"  action="./api/editTitle.php">
         <table width="100%">
             
                 <tr class="yel">
@@ -30,7 +30,7 @@
                     <td><input type="radio" name="sh" value="<?=$value['id']?>" <?=$value['sh']==1?"checked":''?>></td>
                     <td><input type="checkbox" name="del[]" value="<?=$value['id']?>"></td>
                     <td>
-                        <input type="button" onclick="op('#cover','#cvr','./modal/update.php?id=<?=$value['id']?>&from=title_update')"value="更新圖片">
+                        <input type="button" onclick="op('#cover','#cvr','./modal/update.php?id=<?=$value['id']?>&from=Title_update')"value="更新圖片">
                         <input type="hidden" name="id[]" value="<?=$value['id'];?>">
                     </td>
                 </tr>
@@ -42,7 +42,7 @@
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
-                    <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/update.php?from=title_add')"
+                    <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/update.php?from=Title_add')"
                             value="新增網站標題圖片"></td>
                     <td class="cent">
                     

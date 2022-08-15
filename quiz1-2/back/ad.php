@@ -7,7 +7,7 @@ input[type=text]
 
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">動態文字廣告管理</p>
-    <form method="post"  action="./api/editad.php">
+    <form method="post"  action="./api/editAd.php">
         <table width="100%">
             
                 <tr class="yel">
@@ -38,7 +38,7 @@ input[type=text]
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
-                    <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/update.php?from=ad')"
+                    <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/update.php?from=Ad')"
                             value="新增動態文字廣告"></td>
                     <td class="cent">
                     
