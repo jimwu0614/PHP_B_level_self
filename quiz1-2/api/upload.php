@@ -1,14 +1,16 @@
 <?php
 include "../base.php";
 
-$img = $_FILES['img'];
 $from = $_POST['from'];
 $id = $_POST['id'];
 
+if(isset($_FILES['img'])){
+    $img = $_FILES['img'];
+}
+
 switch ($from) {
     case 'title_update':
-        // $data=[];
-        // $data['id']=$id;
+
         if(isset($img['tmp_name'])){
             move_uploaded_file($img['tmp_name'],"../img/{$img['name']}");
         }
@@ -41,7 +43,15 @@ switch ($from) {
         
         break;
 
-    case 'ad':
+    case 'mvim_add':
+        
+        if(isset($img['tmp_name'])){
+            move_uploaded_file($img['tmp_name'],"../img/{$img['name']}");
+        }
+
+
+        $Mvim->save(['img'=>$img['name'],'sh'=>1]);
+        to('../back.php?do=mvim');
         
         
 
@@ -49,7 +59,20 @@ switch ($from) {
         
         break;
 
-    case 'ad':
+    case 'mvim_update':
+        
+        if(isset($img['tmp_name'])){
+            move_uploaded_file($img['tmp_name'],"../img/{$img['name']}");
+        }
+
+        $Mvim->save(['id'=>$id,'img'=>$img['name']]);
+        to('../back.php?do=mvim');
+
+
+        
+        break;
+
+    case '__':
         
         
 
@@ -57,7 +80,7 @@ switch ($from) {
         
         break;
 
-    case 'ad':
+    case '__':
         
         
 
@@ -65,7 +88,7 @@ switch ($from) {
         
         break;
 
-    case 'ad':
+    case '__':
         
         
 
@@ -73,15 +96,7 @@ switch ($from) {
         
         break;
 
-    case 'ad':
-        
-        
-
-
-        
-        break;
-
-    case 'ad':
+    case '__':
         
         
 
