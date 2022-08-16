@@ -26,7 +26,7 @@
         $count = $Image->math("count","id");
         $div = 3; 
         $pages = ceil($count/$div);
-        echo $pages;
+        // echo $pages;
         $now = $_GET['p']??1;
         $start = ($now - 1 ) * $div;
 

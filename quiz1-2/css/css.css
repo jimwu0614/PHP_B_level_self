@@ -165,3 +165,12 @@ input:focus,button:focus
 .w80{
 	width: 80%;
 }
+
+.newsbox{
+	text-align: left;
+}
+.more{
+	position: relative;
+    bottom: 30px;
+    left: 28rem;
+}

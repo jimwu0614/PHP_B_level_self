@@ -139,6 +139,7 @@ $Total = new DB('b_quiz_1_total');
 $Mvim = new DB('b_quiz_1_mvim');
 $Image = new DB('b_quiz_1_image');
 $Bottom = new DB('b_quiz_1_bottom');
+$News = new DB('b_quiz_1_news');
 
 
 if (!isset($_SESSION['visit'])) {

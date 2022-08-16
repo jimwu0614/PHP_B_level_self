@@ -94,12 +94,14 @@ switch ($from) {
         
         break;
 
-    case '__':
+    case 'News':
         
+        $text = $_POST['text'];
         
+        $News->save(['text'=>$text[0],'sh'=>1]);
+        to('../back.php?do=news');
 
 
-        
         break;
 
     case '__':

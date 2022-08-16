@@ -133,9 +133,21 @@ switch ($from) {
 <?php
         break;
 
-    case '__':
+    case 'News':
 ?>
+        <h1 class="cent">新增最新消息資料</h1>
+        <hr>
+        <form action="./api/upload.php" method="post" enctype="multipart/form-data" class="cent">
 
+            <label for="img">最新消息資料:</label>
+            <textarea name="text[]" class="w80"  cols="10" rows="3"></textarea>
+
+            <input type="hidden" name="from" value="<?=$from?>">
+            <input type="hidden" name="id" value="<?=$id?>">
+            <br>
+            <input type="submit" value="新增">
+            <input type="reset" value="重置">
+        </form>
 
 <?php
         break;
