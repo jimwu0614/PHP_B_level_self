@@ -166,6 +166,9 @@ input:focus,button:focus
 	width: 80%;
 }
 
+.w40{
+	width: 40%;
+}
 .newsbox{
 	text-align: left;
 }

@@ -104,6 +104,39 @@ switch ($from) {
 
         break;
 
+    case 'Admin':
+        
+                
+        $acc = $_POST['acc'];
+        $pw = $_POST['pw'];
+
+        $Admin->save(['acc'=>$acc,'pw'=>$pw]);
+        to('../back.php?do=admin');
+
+
+
+        
+        break;
+
+    
+    case '__':
+        
+        
+
+
+        
+        break;
+
+    
+    case '__':
+        
+        
+
+
+        
+        break;
+
+    
     case '__':
         
         

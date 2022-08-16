@@ -152,6 +152,52 @@ switch ($from) {
 <?php
         break;
 
+    case 'Admin':
+
+?>
+        <h1 class="cent">新增管理者帳號</h1>
+        <hr>
+        <form action="./api/upload.php" method="post" enctype="multipart/form-data" class="cent">
+
+            <label for="img">帳號:</label>
+            <input style="width:250px;" type="text" name="acc" >
+            <br>
+            
+            <label for="img">密碼:</label>
+            <input style="width:250px;" type="password" name="pw" >
+            <br>
+            
+            <label for="img">確認密碼:</label>
+            <input style="width:250px;" type="password" name="password2" >
+            <br>
+
+            <input type="hidden" name="from" value="<?=$from?>">
+
+            <br>
+            <input type="submit" value="新增">
+            <input type="reset" value="重置">
+        </form>
+       
+
+<?php
+        break;
+
+    case '__':
+?>
+
+       
+
+<?php
+        break;
+
+    case '__':
+?>
+
+       
+
+<?php
+        break;
+
     case '__':
 ?>
 
