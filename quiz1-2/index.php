@@ -1,5 +1,6 @@
 <?php
 include "./base.php";
+
 ?>
 <!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -40,7 +41,7 @@ include "./base.php";
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 :
-						1 </span>
+					<?=$Total->find(['id'=>1])['total']?> </span>
 				</div>
 			</div>
 			<?php
