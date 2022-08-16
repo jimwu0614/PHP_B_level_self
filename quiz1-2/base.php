@@ -138,6 +138,7 @@ $Title = new DB('b_quiz_1_title');
 $Total = new DB('b_quiz_1_total');
 $Mvim = new DB('b_quiz_1_mvim');
 $Image = new DB('b_quiz_1_image');
+$Bottom = new DB('b_quiz_1_bottom');
 
 
 if (!isset($_SESSION['visit'])) {
