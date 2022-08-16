@@ -182,24 +182,32 @@ switch ($from) {
 <?php
         break;
 
-    case '__':
+    case 'Menu_add':
 ?>
+        <h1 class="cent">新增主選單</h1>
+        <hr>
+        <form action="./api/upload.php" method="post" enctype="multipart/form-data" class="cent">
 
-       
+            <label style="margin-right: 80px;" >主選單名稱:</label>
+            <label >主選單網址:</label>
+            <br>
+            <input type="text" name="text" >
+            <input type="text" name="url" >
+
+            <input type="hidden" name="from" value="<?=$from?>">
+
+            <br>
+            <input type="submit" value="新增">
+            <input type="reset" value="重置">
+        </form>
 
 <?php
         break;
 
-    case '__':
+    case 'Menu_update':
 ?>
 
        
-
-<?php
-        break;
-
-    case '__':
-?>
 
 
 <?php

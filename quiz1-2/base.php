@@ -141,6 +141,7 @@ $Image = new DB('b_quiz_1_image');
 $Bottom = new DB('b_quiz_1_bottom');
 $News = new DB('b_quiz_1_news');
 $Admin = new DB('b_quiz_1_admin');
+$Menu = new DB('b_quiz_1_menu');
 
 
 if (!isset($_SESSION['visit'])) {

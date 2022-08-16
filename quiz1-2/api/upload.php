@@ -2,8 +2,11 @@
 include "../base.php";
 
 $from = $_POST['from'];
-$id = $_POST['id'];
 
+
+if(isset($_POST['id'])){
+    $id = $_POST['id'];
+}
 if(isset($_FILES['img'])){
     $img = $_FILES['img'];
 }
@@ -119,25 +122,25 @@ switch ($from) {
         break;
 
     
-    case '__':
+    case 'Menu_add':
         
+        $text = $_POST['text'];
+        $url = $_POST['url'];
         
 
 
-        
-        break;
+        $Menu->save(['text'=>$text,'url'=>$url,'sh'=>1]);
+        to('../back.php?do=menu');
 
-    
-    case '__':
-        
-        
 
 
         
         break;
 
     
-    case '__':
+    case 'Menu_update':
+        
+        
         
         
 
