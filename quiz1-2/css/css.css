@@ -98,6 +98,9 @@ body
 	background:url(icon/menu4.fw.png) center no-repeat;
 	background-size:cover;
 }
+.mw{
+	display: none;
+}
 #lf
 {
 	height:540px;
@@ -183,3 +186,8 @@ input:focus,button:focus
 .marg-at{
 	margin: 0 auto;
 }
+.flex{
+	display: flex;
+	flex-direction: column;
+}
+

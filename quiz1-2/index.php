@@ -34,16 +34,43 @@ include "./base.php";
 
 		
 		<div id="ms">
+
+
 			<div id="lf" style="float:left;">
 				<div id="menuput" class="dbor">
 					<!--主選單放此-->
-					<span class="t botli">主選單區</span>
+					<span class="t botli ">主選單區</span>
+					<div class="flex w100">
+						<?php
+						$mmenu = $Menu->all(['sh'=>1,'parent'=>0]);
+						foreach ($mmenu as $menu) {
+							echo "<div class='mainmu'>";
+							echo "<a href='{$menu['url']}'>{$menu['text']}</a>";
+							
+
+							$smenus = $Menu->all(['sh'=>1,'parent'=>$menu['id']]);
+							foreach ($smenus as $smenu){
+								echo "<div class='mw mainmu2'>";
+								echo "<a href='{$smenu['url']}'>{$smenu['text']}</a>";
+								echo "</div>";
+							}
+							echo "</div>";
+						}
+						?>
+					</div>
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 :
 					<?=$Total->find(['id'=>1])['total']?> </span>
 				</div>
 			</div>
+
+
+
+
+
+
+
 			<?php
 			$do = $_GET['do']??'main';
 			
