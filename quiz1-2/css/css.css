@@ -169,6 +169,9 @@ input:focus,button:focus
 .w40{
 	width: 40%;
 }
+.w20{
+	width: 20%;
+}
 .newsbox{
 	text-align: left;
 }
@@ -176,4 +179,7 @@ input:focus,button:focus
 	position: relative;
     bottom: 30px;
     left: 28rem;
+}
+.marg-at{
+	margin: 0 auto;
 }

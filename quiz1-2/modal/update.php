@@ -1,7 +1,7 @@
 <?php
+include "../base.php";
 $from = $_GET['from'];
 if (isset($_GET['id'])) {
-    
     $id = $_GET['id'];
 }
 
@@ -206,13 +206,49 @@ switch ($from) {
 
     case 'Menu_update':
 ?>
+        <h1 class="cent">編輯次選單</h1>
+        <hr>
+        <form action="./api/upload.php" method="post" enctype="multipart/form-data" class="cent">
+            <table class="w80 marg-at" id="menutable">
+                <tr>
+                    <td class="w40">次選單名稱</td>
+                    <td class="w40">次選單連結網址</td>
+                    <td class="w20">刪除</td>
+                </tr>
+<?php
+    $menus = $Menu->all(['parent'=>$id]);
+    
+    foreach ($menus as $menu) {
+?>
+                <tr>
+                    <td ><input type="text" name="text[]" value="<?=$menu['text']?>"></td>
+                    <td ><input type="text" name="url[]" value="<?=$menu['url']?>"></td>
+                    <td ><input type="checkbox" name="del[]" value="<?=$menu['id']?>"></td>
+                         <input type="hidden" name="subid[]" value="<?=$menu['id']?>">
+                </tr>
+<?php
+    }
 
+?>
+
+            </table>
+
+            <input type="hidden" name="from" value="<?=$from?>">
+            <input type="hidden" name="parent" value="<?=$id?>">
+            <br>
+            <input type="submit" value="更新">
+            <input type="reset" value="重置">
+            <input type="button" onclick="more()" value="更多次選單">
+        </form>
        
-
-
 <?php
 
 
 }
 
 ?>
+
+<script>
+    function more(){
+        $("#menutable").append(`<tr> <td ><input type="text" name="text2[]" id=""></td> <td ><input type="text" name="url2[]" id=""></td> <td></td> </tr>`)}
+</script>

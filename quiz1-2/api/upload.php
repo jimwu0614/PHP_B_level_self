@@ -126,8 +126,6 @@ switch ($from) {
         
         $text = $_POST['text'];
         $url = $_POST['url'];
-        
-
 
         $Menu->save(['text'=>$text,'url'=>$url,'sh'=>1]);
         to('../back.php?do=menu');
@@ -141,17 +139,48 @@ switch ($from) {
     case 'Menu_update':
         
         
-        
-        
+        $texts = $_POST['text'];
+        $urls = $_POST['url'];
+        $subid = $_POST['subid'];
+  
 
+        if(isset($_POST['del'])){
+            $del = $_POST['del'];
+            foreach($del as $value){
+                $Menu->del(['id'=>$value]);
+            }
+        }
+   
+        foreach ($subid as $key=>$value) {
+            $Menu->save(['id'=>$value,'text'=>$texts[$key],'url'=>$urls[$key]]);
+        }
+
+
+
+
+        if (!empty($_POST['text2']) && !empty($_POST['url2'])) {
+
+            $text2s = $_POST['text2'];
+            $url2s = $_POST['url2'];
+
+            foreach ($text2s as $key=>$text) {
+   
+                    $Menu->save(['text'=>$text,'url'=>$url2s[$key],'sh'=>1,'parent'=>$_POST['parent']]);
+
+            }
+        }
+    
+
+
+        to('../back.php?do=menu');
 
         
         break;
 
-    
-
-
 }
+
+
+
 
 
 
@@ -163,5 +192,3 @@ switch ($from) {
 // echo "<br>";
 // echo $id;
 // echo "<br>";
-
-?>

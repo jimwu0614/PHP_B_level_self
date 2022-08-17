@@ -20,7 +20,7 @@
                 </tr>
 
         <?php
-        $rows = $Menu->all();
+        $rows = $Menu->all(['parent'=>0]);
         foreach($rows as $value){
             // dd($value);
         ?>
@@ -28,7 +28,7 @@
                 <tr>
                     <td><input type="text" name="text[]" value="<?=$value['text']?>"></td>
                     <td><input type="text" name="url[]" value="<?=$value['url']?>"></td>
-                    <td><?=$value['sub']?></td>
+                    <td><?=$Menu->math("count","id",['parent'=>$value['id']])?></td>
                     <td><input type="checkbox" name="sh[]" value="<?=$value['id']?>" <?=$value['sh']==1?"checked":''?>></td>
                     <td><input type="checkbox" name="del[]" value="<?=$value['id']?>"></td>
                     <td>
