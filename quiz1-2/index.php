@@ -112,6 +112,26 @@ include "./base.php";
 				
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
+					<div class="flex jc">
+
+					<div onclick="pp(1)" style="margin-top: 30px; margin-bottom:10px;"><img src="./icon/up.jpg" alt=""></div>
+
+
+					<?php 
+							$imgs=$Image->all(['sh'=>1]);
+							foreach($imgs as $idx => $img){
+						?>
+						<div id="ssaa<?=$idx;?>" class="cent im">
+							<img class="img" src="./img/<?=$img['img'];?>" >
+						</div>
+						<?php
+						}
+						?>
+
+
+
+					<div onclick="pp(2)" style="margin-top: 10px;"><img src="./icon/dn.jpg" alt=""></div>
+					</div>
 					<script>
 						var nowpage = 0,
 							num = 0;

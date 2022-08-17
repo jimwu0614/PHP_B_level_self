@@ -191,3 +191,11 @@ input:focus,button:focus
 	flex-direction: column;
 }
 
+.jc{
+	justify-content: center;
+	align-items: center;
+}
+.img{
+	width: 150px;
+	height: 100px;
+}
