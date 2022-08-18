@@ -25,7 +25,7 @@ include "./base.php"
 	<div id="all">
 		<div id="title">
 
-			<?= date('m 月 d 號 l') ?> | 今日瀏覽: 1 | 累積瀏覽: 36 </div>
+			<?= date('m 月 d 號 l') ?> | 今日瀏覽: <?=$Total->find(['date'=>$today])['total']?> | 累積瀏覽: <?=$Total->math('sum','total')?> </div>
 		<div id="title2">
 			<a href="./index.php"><img src="./icon/02B01.jpg" title="健康促進網-回首頁" alt="健康促進網-回首頁"></a>
 		</div>

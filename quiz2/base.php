@@ -129,10 +129,30 @@ class DB{
 
 
 }
+
+
 $User = new DB('user');
 $News = new DB('news');
 $Que = new DB('que');
 $Log = new DB('log');
+$Total = new DB('total');
 
+
+$today = date('Y-m-d');
+// echo $today;
+if (!isset($_SESSION['guest'])) {
+    $chk = $Total->math("count",'id',['date'=>$today]);
+    if ($chk>0) {
+        $_SESSION['guest']=1;
+        $rec = $Total->find(['date'=>$today]);
+        $rec['total']++;
+        $Total->save($rec);
+    }else{
+        $_SESSION['guest']=1;
+        $rec = $Total->save(['date'=>$today,'total'=>1]);
+        
+
+    }
+}
 ?>
 
