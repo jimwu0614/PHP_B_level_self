@@ -131,11 +131,11 @@ class DB{
 }
 
 
-$User = new DB('user');
-$News = new DB('news');
-$Que = new DB('que');
-$Log = new DB('log');
-$Total = new DB('total');
+$User = new DB('b_quiz_2_user');
+$News = new DB('b_quiz_2_news');
+$Que = new DB('b_quiz_2_que');
+$Log = new DB('b_quiz_2_log');
+$Total = new DB('b_quiz_2_total');
 
 
 $today = date('Y-m-d');
