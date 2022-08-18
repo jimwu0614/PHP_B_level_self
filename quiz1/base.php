@@ -8,7 +8,7 @@ class DB {
     // public $dsn = "mysql:host=localhost;charset=utf8;dbname=s1110205";
     // public $user = "s1110205";
     // public $pw = "s1110205";
-    public $dsn = "mysql:host=localhost;charset=utf8;dbname=btest";
+    public $dsn = "mysql:host=localhost;charset=utf8;dbname=web0501";
     public $user = "root";
     public $pw = "";
     public $table;
@@ -60,7 +60,7 @@ class DB {
         }else{
             $sql .= " WHERE `id` = '$id' ";
         }
-
+        // echo $sql;
         return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
 
@@ -125,6 +125,10 @@ echo "</pre>";
 
 }
 
+function to($url){
+    header("location:".$url);
+}
+
 
 // 增
 
@@ -132,12 +136,22 @@ echo "</pre>";
 
 // 刪
 
-$Bottom = new DB('b_levelq1_bottom');
+$Bottom = new DB('bottom');
+$Title = new DB('title');
+$Ad = new DB('ad');
+$Mvim = new DB('mvim');
+$admin = new DB('admin');
+$Image = new DB('image');
+$Total = new DB('total');
+$News = new DB('news');
+$Menu = new DB('menu');
 
 
-//$sql = SELECT * FROM B_levelQ1_bottom where `id` = '1'
-// print_r($Bottom->all());                   //Array ( [0] => Array ( [id] => 1 [bottom] => 2022-07-20頁尾版權 ) [1] => Array ( [id] => 2 [bottom] => 2022-07-25 ) )
-// print_r($Bottom->all(['id'=>1]));          //Array ( [0] => Array ( [id] => 1 [bottom] => 2022-07-20頁尾版權 ) )
-// print_r($Bottom->all(" where `id` = '1'"));   //Array ( [0] => Array ( [id] => 1 [bottom] => 2022-07-20頁尾版權 ) )
+if (!isset($_SESSION['vis'])) {
+    $_SESSION['vis']=1;
+    $total = $Total->find(1);
 
+    $total['total']++;
+    $Total->save($total);
+}
 ?>
