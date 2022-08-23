@@ -11,7 +11,7 @@
 				<tr class="yel">
 					<td width="45%">進站總人數:</td>
 					<td style="background: #FFF;"><input type="text" name="total" value="<?=$Total->find(1)['total']?>" ></td>
-					<input type="hidden" name="from" value="total">
+					<input type="hidden" name="from" value="Total">
 				</tr>
 			</tbody>
 		</table>

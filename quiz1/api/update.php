@@ -4,7 +4,7 @@ include "../base.php";
 $from = $_POST['from'];
 
 switch ($from) {
-    case 'total':
+    case 'Total':
         $total = $_POST['total'];
 
         $Total->save(['id'=>1,'total'=>$total]);
@@ -96,9 +96,12 @@ switch ($from) {
         break;
     
  
-    case 'value':
-        # code...
-        break;
+        case 'Bottom':
+            $bottom = $_POST['text'];
+    
+            $Bottom->save(['id'=>1,'text'=>$bottom]);
+            to("../back.php?do=bottom");
+            break;
     
  
     case 'value':
