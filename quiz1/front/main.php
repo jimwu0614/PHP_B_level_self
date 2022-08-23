@@ -20,7 +20,16 @@
 		var lin = new Array();
 		var now = 0;
 
-		// ww();
+		<?php
+		$mv = $Mvim->all(['sh'=>1]);
+		foreach ($mv as $value) {
+			?>
+			lin.push('./img/<?=$value['img']?>')
+			<?php
+		}
+		?>
+
+		ww();
 		if (lin.length > 1) {
 			setInterval("ww()", 3000);
 			now = 1;

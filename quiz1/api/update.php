@@ -46,13 +46,29 @@ switch ($from) {
         break;
     
  
-    case '':
+    case 'Mvim_add':
 
+        $img = $_FILES['img'];
+        if(isset($img['tmp_name'])){
+            move_uploaded_file($img['tmp_name'],"../img/{$img['name']}");
+        }
+
+        $Mvim->save(['img'=>$img['name'],'sh'=>1]);
+        to("../back.php?do=mvim");
+        break;
         break;
     
  
-    case 'value':
-        # code...
+    case 'Mvim_edit':
+        $id = $_POST['id'];
+        $img = $_FILES['img'];
+        if(isset($img['tmp_name'])){
+            move_uploaded_file($img['tmp_name'],"../img/{$img['name']}");
+        }
+
+        // dd($id);
+        $Mvim->save(['id'=>$id,'img'=>$img['name']]);
+        to("../back.php?do=mvim");
         break;
     
  

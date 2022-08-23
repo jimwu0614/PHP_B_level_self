@@ -32,12 +32,13 @@ switch ($from) {
         break;
     
         case 'Ad':
+            $text = $_POST['text'];
+            
             $id = $_POST['id'];
 
             if(isset($_POST['sh'])){
                 $sh = $_POST['sh'];
             }
-            $text = $_POST['text'];
     
             $id = $_POST['id'];
             if (!empty($_POST['del'])) {
@@ -60,8 +61,32 @@ switch ($from) {
             to("../back.php?do=ad");
             break;
     
-    case 'value':
-        # code...
+    case 'Mvim':
+            $id = $_POST['id'];
+            
+            if(isset($_POST['sh'])){
+                $sh = $_POST['sh'];
+            }
+    
+            $id = $_POST['id'];
+            if (!empty($_POST['del'])) {
+                $del = $_POST['del'];
+                foreach ($del as $value) {
+                    if(in_array($value,$_POST['id'])){
+                    $Mvim->del($value);
+                    }
+                }
+            }
+
+            foreach ($id as $key => $value) {
+                if (isset($_POST['sh']) && in_array($value,$sh)) {
+                    $Mvim->save(['id'=>$value,'sh'=>1]); 
+                }else{
+                    $Mvim->save(['id'=>$value,'sh'=>0]);
+                }
+            }
+
+            to("../back.php?do=mvim");
         break;
     
     case 'value':
