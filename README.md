@@ -22,9 +22,9 @@ base.php:
     
             foreach ($id as $key => $value) {
                 if (isset($_POST['sh']) && in_array($value,$sh)) {
-                    $Ad->save(['id'=>$value,'text'=>$text[$key],'sh'=>1]); 
+                    save(); 
                 }else{
-                    $Ad->save(['id'=>$value,'text'=>$text[$key],'sh'=>0]);
+                    save();
                 }
             }
             
