@@ -189,8 +189,27 @@ switch ($from) {
         break;
     
 
-    case 'value':
-        # code...
+    case 'News_add':
+        ?>
+            <h1 class="cent">新增最新消息資料</h1>
+            <hr>
+            <form action="./api/update.php" method="post" enctype="multipart/form-data">
+                <table class="ma">
+                    <tr>
+                        <td>最新消息資料:</td>
+                        <td><textarea name="text" cols="50" rows="5"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="新增">
+                            <input type="reset" value="重置">
+                        </td>
+                        <td><input type="hidden" name="from" value="<?=$from?>"></td>
+                    </tr>
+
+                </table>
+            </form>
+        <?php
         break;
     
 

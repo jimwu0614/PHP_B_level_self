@@ -192,3 +192,10 @@ input:focus,button:focus
 	height: 100px;
 	margin-bottom: 3px;
 }
+.all{
+	display: none;
+}
+.blue{
+	text-decoration: none;
+	float: right;
+}

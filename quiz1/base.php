@@ -40,7 +40,8 @@ class DB {
             }
 
         //如果陣列有第二個  基本上只會給字串 
-        }elseif(isset($arg[1])){
+        }
+        if(isset($arg[1])){
             $sql .= $arg[1];
         }
         

@@ -4,14 +4,7 @@ include "../base.php";
 $from = $_POST['from'];
 
 switch ($from) {
-    case 'Total':
-        $total = $_POST['total'];
 
-        $Total->save(['id'=>1,'total'=>$total]);
-        to("../back.php?do=total");
-        break;
-    
- 
     case 'Title_add':
         $text = $_POST['text'];
         $img = $_FILES['img'];
@@ -96,16 +89,11 @@ switch ($from) {
         break;
     
  
-        case 'Bottom':
-            $bottom = $_POST['text'];
-    
-            $Bottom->save(['id'=>1,'text'=>$bottom]);
-            to("../back.php?do=bottom");
-            break;
-    
- 
-    case 'value':
-        # code...
+    case 'News_add':
+        $text = $_POST['text'];
+
+        $News->save(['text'=>$text,'sh'=>1]);
+        to("../back.php?do=news");
         break;
     
  
