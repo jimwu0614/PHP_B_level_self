@@ -19,6 +19,7 @@ base.php:
 
 第一題:
     陣列顯示:
+    
             foreach ($id as $key => $value) {
                 if (isset($_POST['sh']) && in_array($value,$sh)) {
                     $Ad->save(['id'=>$value,'text'=>$text[$key],'sh'=>1]); 
