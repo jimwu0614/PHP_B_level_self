@@ -156,3 +156,25 @@ input:focus,button:focus
 	cursor:pointer;
 	text-decoration:none;
 }
+.w100{
+	width: 100%;
+}
+.w80{
+	width: 80%;
+}
+.w50{
+	width: 50%;
+}
+.w40{
+	width: 40%;
+}
+.w10{
+	width: 10%;
+}
+.flex{
+	display: flex;
+	flex-wrap: wrap;
+}
+.ma{
+	margin: 0px auto;
+}

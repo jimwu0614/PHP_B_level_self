@@ -14,7 +14,7 @@
 		var lin = new Array();
 		var now = 0;
 
-		ww();
+		// ww();
 		if (lin.length > 1) {
 			setInterval("ww()", 3000);
 			now = 1;

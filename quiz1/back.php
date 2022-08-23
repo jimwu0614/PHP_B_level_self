@@ -27,7 +27,7 @@ include_once "./base.php"
     </div>
     <iframe style="display:none;" name="back" id="back"></iframe>
     <div id="main">
-        <a title="" href="?">
+        <a title="" href="./index.php">
             <div class="ti" style="background:url('use/'); background-size:cover;"></div>
             <!--標題-->
         </a>
