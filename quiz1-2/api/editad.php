@@ -6,7 +6,6 @@ $text = $_POST['text'];
 
 if(!empty($_POST['sh'])){
     $sh = $_POST['sh'];
-    
 }
 
 
@@ -20,24 +19,12 @@ if(isset($_POST['del'])){
 
 
 foreach ($id as $key =>$value){
-    
-    // dd($sh);
 
-
-        // echo "<br>";
-        // echo $sh[$value];
-        echo "<hr>";
-        if(isset($sh)&&in_array($value,$sh)){
-            // (isset($_POST['sh']) && in_array($id,$_POST['sh']))
-                $Ad->save(['id'=>$value,'text'=>$text[$key],'sh'=>1]);
-                
-    
-        }else{
-            
-                $Ad->save(['id'=>$value,'text'=>$text[$key],'sh'=>0]);
-                
-    
-        }
+    if(isset($sh)&&in_array($value,$sh)){
+            $Ad->save(['id'=>$value,'text'=>$text[$key],'sh'=>1]);
+    }else{
+            $Ad->save(['id'=>$value,'text'=>$text[$key],'sh'=>0]);
+    }
     
 }
 to('../back.php?do=ad');
