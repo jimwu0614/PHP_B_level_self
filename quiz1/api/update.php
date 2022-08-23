@@ -55,7 +55,7 @@ switch ($from) {
 
         $Mvim->save(['img'=>$img['name'],'sh'=>1]);
         to("../back.php?do=mvim");
-        break;
+
         break;
     
  
@@ -72,13 +72,27 @@ switch ($from) {
         break;
     
  
-    case 'value':
-        # code...
+    case 'Image_add':
+        $img = $_FILES['img'];
+        if(isset($img['tmp_name'])){
+            move_uploaded_file($img['tmp_name'],"../img/{$img['name']}");
+        }
+
+        $Image->save(['img'=>$img['name'],'sh'=>1]);
+        to("../back.php?do=image");
         break;
     
  
-    case 'value':
-        # code...
+    case 'Image_edit':
+        $id = $_POST['id'];
+        $img = $_FILES['img'];
+        if(isset($img['tmp_name'])){
+            move_uploaded_file($img['tmp_name'],"../img/{$img['name']}");
+        }
+
+        // dd($id);
+        $Image->save(['id'=>$id,'img'=>$img['name']]);
+        to("../back.php?do=image");
         break;
     
  

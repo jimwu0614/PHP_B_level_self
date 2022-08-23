@@ -114,7 +114,30 @@ class DB {
         
     }
 
+function math($math,$col,...$arg){
+    $sql = "SELECT $math($col) FROM $this->table ";
+    //如果陣列的第一個值存在
+    if (isset($arg[0])) {
+        if(is_array($arg[0])){
+            foreach ($arg[0] as $key => $value) {
+                $tmp[] = "`$key`='$value'";
+            }
 
+            //     WHERE `id`='1' and `room` = '101'
+            $sql .= " WHERE " . join(" AND ", $tmp);
+        }else{
+            $sql .= $arg[0];
+        }
+
+    //如果陣列有第二個  基本上只會給字串 
+    }elseif(isset($arg[1])){
+        $sql .= $arg[1];
+    }
+    
+    // echo $sql; 
+    return $this->pdo->query($sql)->fetchColumn();
+
+}
 
 
 

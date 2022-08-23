@@ -181,3 +181,14 @@ input:focus,button:focus
 .ma{
 	margin: 0px auto;
 }
+
+.col{
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.img{
+	width: 150px;
+	height: 100px;
+	margin-bottom: 3px;
+}
