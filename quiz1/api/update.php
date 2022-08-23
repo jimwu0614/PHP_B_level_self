@@ -12,7 +12,7 @@ switch ($from) {
         break;
     
  
-    case 'addTitle':
+    case 'Title_add':
         $text = $_POST['text'];
         $img = $_FILES['img'];
         if(isset($img['tmp_name'])){
@@ -24,7 +24,7 @@ switch ($from) {
         break;
     
  
-    case 'editTitle':
+    case 'Title_edit':
         $id = $_POST['id'];
         $img = $_FILES['img'];
         if(isset($img['tmp_name'])){
@@ -38,13 +38,16 @@ switch ($from) {
         break;
     
  
-    case 'value':
-        # code...
+    case 'Ad_add':
+        $text = $_POST['text'];
+
+        $Ad->save(['text'=>$text,'sh'=>1]);
+        to("../back.php?do=ad");
         break;
     
  
-    case 'value':
-        # code...
+    case '':
+
         break;
     
  

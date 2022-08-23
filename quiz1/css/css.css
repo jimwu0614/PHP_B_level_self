@@ -159,6 +159,9 @@ input:focus,button:focus
 .w100{
 	width: 100%;
 }
+.w90{
+	width: 90%;
+}
 .w80{
 	width: 80%;
 }
