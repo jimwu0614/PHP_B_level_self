@@ -131,6 +131,7 @@ public function save($array){
 }
 
 $Total = new DB("total");
+$User = new DB("user");
 
 
 

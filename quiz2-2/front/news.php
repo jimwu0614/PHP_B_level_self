@@ -1,1 +1,3 @@
-news
+<fieldset>
+    <legend></legend>
+</fieldset>

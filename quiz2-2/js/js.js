@@ -19,3 +19,6 @@ function good(id,type,user)
 		}
 	})
 }
+function logout() {
+	location.href='./api/logout.php'
+}

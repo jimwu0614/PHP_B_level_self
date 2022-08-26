@@ -339,5 +339,14 @@ cursor:default;
 	align-items: center;
 }
 
+marquee{
+	display: inline-block;
+}
 
-
+.blue{
+	color: blue;
+	cursor: pointer;
+}
+.ma{
+	margin: 0px auto;
+}
