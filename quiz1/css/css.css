@@ -96,6 +96,10 @@ body
 	background:url(../icon/menu4.fw.png) center no-repeat;
 	background-size:cover;
 }
+
+.mw{
+	
+}
 #lf
 {
 	height:540px;
@@ -177,18 +181,22 @@ input:focus,button:focus
 .w10{
 	width: 10%;
 }
+.w5{
+	width: 5%;
+}
 .flex{
 	display: flex;
 	flex-wrap: wrap;
-}
-.ma{
-	margin: 0px auto;
 }
 
 .col{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.ma{
+	margin: 0px auto;
 }
 .img{
 	width: 150px;

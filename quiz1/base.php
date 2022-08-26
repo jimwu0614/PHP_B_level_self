@@ -108,7 +108,7 @@ class DB {
         }
 
 
-        //會回傳被刪除的筆數  若成功會>=1   若為0表示失敗
+
         // echo $sql;
         
         return $this->pdo->exec($sql);

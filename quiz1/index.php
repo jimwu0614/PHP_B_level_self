@@ -32,6 +32,29 @@ include_once "./base.php";
 				<div id="menuput" class="dbor">
 					<!--主選單放此-->
 					<span class="t botli">主選單區</span>
+
+					<div class="flex col">
+						<?php
+							$rows = $Menu->all(['sh'=>1,'par'=>0]);
+							foreach ($rows as $key => $value) {
+			
+								echo"<div class='mainmu w80'>";
+								echo"	<a href='{$value['url']}' >{$value['text']}</a>";
+								
+								$subs = $Menu->all(['sh'=>1,'par'=>$value['id']]);
+								foreach($subs as $sub){
+									echo "<div class='mw mainmu2'>";
+									echo "	<a href='{$sub['url']}'>{$sub['text']}</a>";
+									echo "</div>";
+								}
+								echo"</div>";
+
+							}
+						
+						?>
+
+
+					</div>
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 :

@@ -1,4 +1,6 @@
 <?php
+
+include "./base.php";
 $from = $_GET['from'];
 $id = $_GET['id']??'';
 
@@ -245,13 +247,77 @@ switch ($from) {
         break;
     
 
-    case 'value':
-        # code...
+    case 'Menu_add':
+        ?>
+            <h1 class="cent">新增主選單</h1>
+            <hr>
+            <form action="./api/update.php" method="post" enctype="multipart/form-data">
+                <table class="ma">
+                    <tr>
+                        <td>主選單名稱:</td>
+                        <td><input type="text" name="text" ></td>
+                    </tr>
+                    <tr>
+                        <td>主選單連結網址:</td>
+                        <td><input type="text" name="url" ></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="新增">
+                            <input type="reset" value="重置">
+                        </td>
+                        <td><input type="hidden" name="from" value="<?=$from?>"></td>
+                    </tr>
+
+                </table>
+            </form>
+        <?php
         break;
     
 
-    case 'value':
-        # code...
+    case 'Menu_edit':
+        ?>
+        <h1 class="cent">編輯次選單</h1>
+        <hr>
+        <form action="./api/update.php" method="post" enctype="multipart/form-data">
+            <table class="ma" id="formbody">
+                <tr>
+                    <td class="w40">次選單名稱:</td>
+                    <td class="w40">次選單連結網址:</td>
+                    <td class="w20">刪除</td>
+                </tr>
+                <?php
+                	$rows = $Menu->all(['par'=>$_GET['id']]);
+                    foreach ($rows as $key => $value) {
+                ?>
+                <tr>
+                    <td><input type="text" name="text[]" value="<?=$value['text']?>"></td>
+                    <td><input type="text" name="url[]" value="<?=$value['url']?>"></td>
+                    <td><input type="checkbox" name="del[]" value="<?=$value['id']?>"></td>
+                    <input type="hidden" name="subid[]" value="<?=$value['id']?>">
+
+                </tr>
+                <?php
+                    }
+                ?>
+            </table>
+
+            <table class="ma">
+                <tr>
+                    <td>
+                        <input type="hidden" name="from" value="Sub_edit">
+                        <input type="hidden" name="mainid" value="<?=$_GET['id']?>">
+                    </td>
+                    <td >
+                        <input type="submit" value="修改確定">
+                        <input type="reset" value="重置">
+                        <button type="button" onclick="more()">更多次選單</button>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    <?php
         break;
     
 
@@ -264,3 +330,14 @@ switch ($from) {
 
 
 ?>
+
+<script>
+    function more() {
+        $('#formbody').append(`<tr>
+                    <td><input type="text" name="text2[]" value=""></td>
+                    <td><input type="text" name="url2[]" value=""></td>
+                    <td></td>
+                </tr>
+        `)
+    }
+</script>
