@@ -164,8 +164,26 @@ switch ($from) {
         to("../back.php?do=news");
         break;
     
-    case 'value':
-        # code...
+    case 'Admin':
+        $acc = $_POST['acc'];
+        $pw = $_POST['pw'];
+
+        $id = $_POST['id'];
+        if (!empty($_POST['del'])) {
+            $del = $_POST['del'];
+            foreach ($del as $value) {
+                if(in_array($value,$_POST['id'])){
+                $Admin->del($value);
+                }
+            }
+        }
+
+        foreach ($id as $key => $value) {
+                $Admin->save(['id'=>$value,'acc'=>$acc[$key],'pw'=>$pw[$key]]); 
+        }
+        to("../back.php?do=admin");
+
+
         break;
     
     case 'value':

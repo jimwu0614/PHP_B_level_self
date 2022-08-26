@@ -213,8 +213,35 @@ switch ($from) {
         break;
     
 
-    case 'value':
-        # code...
+    case 'Admin_add':
+        ?>
+        <h1 class="cent">新增動態文字廣告</h1>
+        <hr>
+        <form action="./api/update.php" method="post" enctype="multipart/form-data">
+            <table class="ma">
+                <tr>
+                    <td>帳號:</td>
+                    <td><input type="text" name="acc" ></td>
+                </tr>
+                <tr>
+                    <td>密碼:</td>
+                    <td><input type="password" name="pw" ></td>
+                </tr>
+                <tr>
+                    <td>確認密碼:</td>
+                    <td><input type="password" name="pw2" ></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="新增">
+                        <input type="reset" value="重置">
+                    </td>
+                    <td><input type="hidden" name="from" value="<?=$from?>"></td>
+                </tr>
+
+            </table>
+        </form>
+    <?php
         break;
     
 
