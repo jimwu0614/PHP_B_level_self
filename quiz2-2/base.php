@@ -122,7 +122,7 @@ public function save($array){
 
 
     }
-    echo $sql;
+    // echo $sql;
     return $this->pdo->exec($sql);
 }
 
@@ -153,4 +153,3 @@ if (!isset($_SESSION['visit'])) {
 }
 
 ?>
-

@@ -15,8 +15,8 @@
                 <input type="button" value="清除" onclick="reset()">
             </td>
             <td>
-                <span class="blue">忘記密碼</span>|
-                <span class="blue">尚未註冊</span>
+                <span class="blue" onclick="location.href='?do=forget'">忘記密碼</span>|
+                <span class="blue" onclick="location.href='?do=reg'">尚未註冊</span>
             </td>
         </tr>
     </table>
@@ -28,8 +28,8 @@
     }
 
     function login() {
-        var acc = $('#acc').val();
-        var pw = $('#pw').val();
+        let acc = $('#acc').val();
+        let pw = $('#pw').val();
             $.post("./api/chkacc.php",{acc},(res)=>{
                 if (res>=1) {
                 $.post("./api/chkpw.php",{acc,pw},(res2)=>{
