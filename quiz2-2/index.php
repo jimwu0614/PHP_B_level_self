@@ -40,7 +40,9 @@ include "./base.php";
 					<?php
 					if (isset($_SESSION['user'])) {
 						if ($_SESSION['user']=='admin') {
-							echo "歡迎，admin <br><button onclick='logout()'>登出</button>|<button onclick='location.href='./back.php''>管理</button>";
+							?>
+							歡迎，admin <br><button onclick='logout()'>登出</button>|<button onclick='location.href="./back.php"'>管理</button>
+							<?php
 						} else {
 							echo "歡迎，{$_SESSION['user']}<button onclick='logout()'>登出</button>";
 						}

@@ -16,6 +16,7 @@
             $count = $News->math('count','id',['sh'=>1]);
             $div = 5;
             $pages = ceil($count/$div);
+
             $now = $_GET['p']??1;
             $start = ($now - 1 ) * $div; 
             $rows = $News->all(['sh'=>1],"limit $start,$div");
@@ -41,12 +42,15 @@
         }
 
 
+        for ($i=1; $i <=$pages ; $i++) { 
+            $size = ($now==$i)?'24px':'18px';
+            echo "<a style='font-size: $size;' href='?do=news&p=$i'>$i</a>";
+        }
 
 
 
 
-
-        if ($now==$pages) {
+        if ($now<$pages) {
             $next = ($now + 1) ;
             echo "<a href='?do=news&p=$next'>></a>";
         }

@@ -1,11 +1,33 @@
-<style>
-    h4 {
-        color: red;
-    }
-</style>
 <fieldset>
-    <legend>會員註冊</legend>
+    <legend>會員登入</legend>
 
+    <form action="./api/deluser.php" method="post">
+        <table class="ma w80" id="userlist">
+            <tr>
+                <td class="clo w40">帳號</td>
+                <td class="clo w40">密碼</td>
+                <td class="clo w20">刪除</td>
+            </tr>
+            <?php
+            $rows = $User->all();
+            foreach ($rows as $key => $value) {
+            ?>
+                <tr>
+                    <td><?= $value['acc'] ?></td>
+                    <td>****</td>
+                    <td><input type="checkbox" name="del[]" value="<?= $value['id'] ?>"></td>
+                    <input type="hidden" name="id[]" value="<?= $value['id'] ?>">
+                </tr>
+
+            <?php
+            }
+            ?>
+        </table>
+        <div class="ct">
+            <input type="submit" value="確定刪除">
+            <input type="reset" value="清空選取">
+        </div>
+    </form>
     <h4>*請設定您要註冊的帳號及密碼(最長12個字元)</h4>
     <table>
         <tr>
@@ -37,22 +59,27 @@
     function reset() {
         $('#acc,#pw').val('');
     }
+
     function reg() {
         let acc = $('#acc').val();
         let pw = $('#pw').val();
         let email = $('#email').val();
 
-        if (acc=='' || pw=='' || pw2=='' || email=='') {
+        if (acc == '' || pw == '' || pw2 == '' || email == '') {
             alert('不可空白')
         }
 
-        $.post('./api/reg.php',{acc,pw,email},(res)=>{
-            
-            if (res=="帳號重複") {
+        $.post('./api/reg.php', {
+            acc,
+            pw,
+            email
+        }, (res) => {
+
+            if (res == "帳號重複") {
                 alert(res);
-            }else{
+            } else {
                 alert(res);
-                location.href='?do=login'
+                location.href = '?do=user'
             }
 
         })
