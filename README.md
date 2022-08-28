@@ -11,6 +11,9 @@
 0817結束
 
 0825第二題第二次
+0828結束
+
+0828第二題第三次
 
 
 較易忘記的:
@@ -38,3 +41,12 @@ base.php:
         在裡面跑回圈用lin.push()
         
         
+第二題:
+    人氣/最新文章toggle:
+
+            $(".title").on("click",function(){
+                $(this).next().children().toggle();
+            })
+
+
+    
