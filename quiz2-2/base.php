@@ -123,6 +123,7 @@ public function save($array){
 
     }
     // echo $sql;
+    // echo "<br>";
     return $this->pdo->exec($sql);
 }
 
@@ -134,6 +135,7 @@ $Total = new DB("total");
 $User = new DB("user");
 $News = new DB("news");
 $Log = new DB("log");
+$Que = new DB("que");
 
 
 
