@@ -14,7 +14,7 @@ if ($good=="讚") {
 } else {
     $news['good']--;
     $News->save($news);
-    $Log->save(['user'=>$user,'good'=>$id]);
+    $Log->del(['user'=>$user,'good'=>$id]);
 
 }
 
