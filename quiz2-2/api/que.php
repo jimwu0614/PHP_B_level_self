@@ -16,6 +16,7 @@ foreach ($opts as $key => $value) {
         $Que->save(['subject'=>$subjectId,'text'=>$value]);
     }
 }
+to("../back.php?do=que");
 
 
 ?>

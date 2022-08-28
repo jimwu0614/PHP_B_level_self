@@ -56,11 +56,11 @@ public function find($arg){
             }
             $sql .= join("AND",$tmp);
         } else {
-            $sql .= $arg;
+            $sql .= "`id`=".$arg;
         }
         
-
     // echo $sql;
+    // echo "<br>";
     return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 }
 
