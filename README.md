@@ -17,6 +17,7 @@
 
 
 0903第一題第三次
+0903結束
 
 較易忘記的:
 
@@ -42,6 +43,10 @@ base.php:
         
         在裡面跑回圈用lin.push()
         
+    news:
+            <li class="sswww"><?=mb_substr($value['text'],0,15)?>
+                <span class="all"><?=$value['text']?></span>
+            </li>
         
 第二題:
     人氣/最新文章toggle:
