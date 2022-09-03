@@ -76,12 +76,12 @@
         if (like=="讚") {
             $(this).text("收回讚");
                 $.post("./api/good.php",{like,id},(res)=>{
-                    console.log(res);
+                    // console.log(res);
                 })
         } else if(like=="收回讚"){
             $(this).text("讚");
                 $.post("./api/good.php",{like,id},(res)=>{
-                    console.log(res);
+                    // console.log(res);
                 })
         }
 

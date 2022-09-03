@@ -6,6 +6,8 @@
 <fieldset>
     <legend>目前位置：首頁＞最新文章區</legend>
 
+    
+
     <table class="w80 ma">
         <tr>
             <td class="w30">標題</td>
@@ -27,22 +29,24 @@
             <td class="clo title" ><?=$value['title']?></td>
             <td class="">
                 <span><?=mb_substr($value['text'],0,10)?>...</span>
-                <span style="display: none;"><?=$value['text']?></span>
+                <div id="alerr" style="background:rgba(51,51,51,0.8); color:#FFF; min-height:100px; width:300px; position:fixed; display:none; z-index:9999; overflow:auto;">
+                    <pre id="ssaa"><?=$value['text']?></pre>
+                </div>    
             </td>
             <td class="">
     <?php
         if (isset($_SESSION['user'])) {
             $log = $Log->math('count','id',['user'=>$_SESSION['user'],'good'=>$value['id']]);
             if ($log) {
-                echo "<span>{$value['good']}個人說<img class='goodimg' src='./icon/02B03.jpg'></span><span data-id='{$value['id']}' class='blue good'>收回讚</span>";
+                echo "<span>{$value['good']}個人說<img class='goodimg' src='./icon/02B03.jpg'></span> - <span data-id='{$value['id']}' class='blue good'>收回讚</span>";
             } else {
-                echo "<span>{$value['good']}個人說<img class='goodimg' src='./icon/02B03.jpg'></span><span data-id='{$value['id']}' class='blue good'>讚</span>";
+                echo "<span>{$value['good']}個人說<img class='goodimg' src='./icon/02B03.jpg'></span> - <span data-id='{$value['id']}' class='blue good'>讚</span>";
             }
         }                    
     ?>
             </td>
         </tr>
-        
+
     <?php
             
         }
@@ -72,12 +76,10 @@
     ?>
 </fieldset>
 <script >
-    $('.title').on('mouseenter',function(){
+    $('.title').hover(function(){
         $(this).next().children().toggle();
     })
-    $('.title').on('mouseleave',function(){
-        $(this).next().children().toggle();
-    })
+
 
     $('.good').on('click',function(){
         let like = $(this).text();
