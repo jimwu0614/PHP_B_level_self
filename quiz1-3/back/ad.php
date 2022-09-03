@@ -1,9 +1,4 @@
-<style>
-    .img{
-        width: 300px;
-        height: 30px;
-    }
-</style>
+
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">動態文字廣告管理</p>
     <form method="post" action="./api/editAd.php">
