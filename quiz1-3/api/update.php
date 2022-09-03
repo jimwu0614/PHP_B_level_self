@@ -41,16 +41,32 @@ switch ($from) {
         
         break;
     
-    case 'value':
+    case 'add_Mvim':
         
+        $img = $_FILES['img'];
+        if (isset($img['tmp_name'])) {
+            move_uploaded_file($img['tmp_name'],"../img/{$img['name']}");
+        }
 
+        $Mvim->save(['img'=>$img['name']]);
+
+
+        to("../back.php?do=mvim");
         
         
         break;
     
-    case 'value':
+    case 'edit_Mvim':
         
+        $img = $_FILES['img'];
+        if (isset($img['tmp_name'])) {
+            move_uploaded_file($img['tmp_name'],"../img/{$img['name']}");
+        }
 
+        $Mvim->save(['id'=>$_POST['id'],'img'=>$img['name']]);
+
+
+        to("../back.php?do=mvim");
         
         
         break;
