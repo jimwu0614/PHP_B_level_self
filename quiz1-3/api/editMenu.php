@@ -6,7 +6,7 @@ include "../base.php";
 if(isset($_POST['del'])){
     foreach ($_POST['id'] as $key => $del) {
         if (in_array($del,$_POST['del'])) {
-            $Ad->del(['id'=>$del]);
+            $Menu->del(['id'=>$del]);
         }
     }
 }
@@ -16,14 +16,14 @@ if(isset($_POST['del'])){
 if(isset($_POST['sh'])){
     foreach ($_POST['id'] as $key => $value) {
         if (in_array($value,$_POST['sh'])) {
-            $Ad->save(['id'=>$value,'text'=>$_POST['text'][$key],'sh'=>1]);
+            $Menu->save(['id'=>$value,'text'=>$_POST['text'][$key],'url'=>$_POST['url'][$key],'sh'=>1]);
         }else{
-            $Ad->save(['id'=>$value,'text'=>$_POST['text'][$key],'sh'=>0]);
+            $Menu->save(['id'=>$value,'text'=>$_POST['text'][$key],'url'=>$_POST['url'][$key],'sh'=>0]);
         }
     }
 }
 
 
-to("../back.php?do=ad")
+to("../back.php?do=menu")
 
 ?>

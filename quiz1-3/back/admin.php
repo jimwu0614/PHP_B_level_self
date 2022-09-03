@@ -4,17 +4,17 @@
         <table width="100%">
             <tbody>
                 <tr class="yel">
-                    <td class="w80">管理者帳號</td>
-                    <td class="w10">顯示</td>
-                    <td class="w10">刪除</td>
+                    <td class="w40">帳號</td>
+                    <td class="w40">密碼</td>
+                    <td class="w20">刪除</td>
                 </tr>
                 <?php
                 $rows = $Admin->all();
                 foreach ($rows as $key => $value) {
                 ?>
                 <tr>
-                    <td><input class="w90" type="text" name="text[]" value="<?=$value['text']?>"></td>
-                    <td><input type="checkbox" name="sh[]" value="<?=$value['id']?>" <?=($value['sh']==1)?'checked':''?>></td>
+                    <td><input class="w90" type="text" name="acc[]" value="<?=$value['acc']?>"></td>
+                    <td><input class="w90" type="password" name="pw[]" value="<?=$value['pw']?>"></td>
                     <td><input type="checkbox" name="del[]" value="<?=$value['id']?>"></td>
                     <input type="hidden" name="id[]" value="<?=$value['id']?>">
                 </tr>
