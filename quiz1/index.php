@@ -35,13 +35,13 @@ include_once "./base.php";
 
 					<div class="flex col">
 						<?php
-							$rows = $Menu->all(['sh'=>1,'par'=>0]);
+							$rows = $Menu->all(['sh'=>1,'parent'=>0]);
 							foreach ($rows as $key => $value) {
 			
 								echo"<div class='mainmu w80'>";
 								echo"	<a href='{$value['url']}' >{$value['text']}</a>";
 								
-								$subs = $Menu->all(['sh'=>1,'par'=>$value['id']]);
+								$subs = $Menu->all(['sh'=>1,'parent'=>$value['id']]);
 								foreach($subs as $sub){
 									echo "<div class='mw mainmu2'>";
 									echo "	<a href='{$sub['url']}'>{$sub['text']}</a>";
