@@ -33,10 +33,11 @@ switch ($from) {
         
         break;
     
-    case 'value':
+    case 'Ad':
         
-
+        $Ad->save(['text'=>$_POST['text']]);
         
+        to("../back.php?do=ad");
         
         break;
     

@@ -47,9 +47,23 @@ switch ($from) {
 
 <?php
         break;
-    case '':
+    case 'Ad':
     ?>
-
+<h1 class="cent">新增動態文字廣告</h1>
+<hr>
+<form action="./api/update.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="from" value="<?=$from?>">
+    <table class="ma">
+        <tr>
+            <td>動態文字廣告:</td>
+            <td><input type="text" name="text"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="新增"><input type="reset" value="重置"></td>
+            <td></td>
+        </tr>
+    </table>
+</form>
 
 <?php
         break;

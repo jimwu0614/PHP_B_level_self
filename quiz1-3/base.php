@@ -84,6 +84,7 @@ class DB{
 
 
         // echo $sql;
+        // echo "<br>";
         return $this->pdo->exec($sql);
     }
 

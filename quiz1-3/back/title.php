@@ -22,7 +22,7 @@
                 ?>
                 <tr>
                     <td><img class="img" src="./img/<?=$value['img']?>" ></td>
-                    <td><?=$value['text']?></td>
+                    <td><input type="text" name="text[]" value="<?=$value['text']?>"></td>
                     <td><input type="radio" name="sh" value="<?=$value['id']?>" <?=($value['sh']==1)?'checked':''?>></td>
                     <td><input type="checkbox" name="del[]" value="<?=$value['id']?>"></td>
                     <td><input type="button" onclick="op('#cover','#cvr','modal.php?from=edit_Title&id=<?=$value['id']?>')" value="更新圖片"></td>
