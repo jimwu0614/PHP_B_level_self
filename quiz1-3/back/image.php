@@ -37,7 +37,7 @@
                 
             </tbody >
         </table>
-<div class="cent">
+        <div class="cent">
 
         <?php
         if($now>1){

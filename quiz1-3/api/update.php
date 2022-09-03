@@ -101,9 +101,11 @@ switch ($from) {
         
         break;
     
-    case 'value':
+    case 'News':
         
-
+        $News->save(['text'=>$_POST['text']]);
+        
+        to("../back.php?do=news");
         
         
         break;

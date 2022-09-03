@@ -218,3 +218,7 @@ input:focus,button:focus
 	text-decoration: none;
 	float: right;
 }
+.page{
+	position: relative;
+    top: 200px;
+}
