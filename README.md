@@ -26,7 +26,7 @@ base.php:
 
 
 第一題:
-    陣列顯示:
+    #陣列顯示:
     
             foreach ($id as $key => $value) {
                 if (isset($_POST['sh']) && in_array($value,$sh)) {
@@ -36,14 +36,14 @@ base.php:
                 }
             }
             
-   動畫輪播:
+   #動畫輪播:
    
       把<div>挪到<script>上
         加一個  ww();
         
-        在裡面跑回圈用lin.push()
+        在裡面跑回圈用lin.push();
         
-    news:
+    #news:
             <li class="sswww"><?=mb_substr($value['text'],0,15)?>
                 <span class="all"><?=$value['text']?></span>
             </li>
