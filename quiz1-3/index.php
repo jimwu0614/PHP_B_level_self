@@ -69,6 +69,19 @@ include_once "./base.php";
                     onclick="lo('?do=login')">管理登入</button>
                 <div style="width:89%; height:480px;" class="dbor">
                     <span class="t botli">校園映象區</span>
+
+                    <div class="col">
+                        <div onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
+                        <?php
+                        $rows = $Image->all(['sh'=>1]);
+                        foreach ($rows as $key => $value) {
+                        ?>
+                        <div class="im" id="ssaa<?=$key?>"><img class="img" src="./img/<?=$value['img']?>" alt=""></div>
+                        <?php
+                        }
+                        ?>
+                        <div onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div>
+                    </div>
                     <script>
                     var nowpage = 0,
                         num = 0;

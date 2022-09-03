@@ -71,16 +71,32 @@ switch ($from) {
         
         break;
     
-    case 'value':
+    case 'add_Image':
         
+        $img = $_FILES['img'];
+        if (isset($img['tmp_name'])) {
+            move_uploaded_file($img['tmp_name'],"../img/{$img['name']}");
+        }
 
+        $Image->save(['img'=>$img['name']]);
+
+
+        to("../back.php?do=image");
         
         
         break;
     
-    case 'value':
+    case 'edit_Image':
         
+        $img = $_FILES['img'];
+        if (isset($img['tmp_name'])) {
+            move_uploaded_file($img['tmp_name'],"../img/{$img['name']}");
+        }
 
+        $Image->save(['id'=>$_POST['id'],'img'=>$img['name']]);
+
+
+        to("../back.php?do=image");
         
         
         break;

@@ -127,8 +127,8 @@ class DB{
             $val = join("', '",$array);
             $sql = "INSERT INTO $this->table (`".$key."`) VALUES ('".$val."')";
         }
-        echo $sql;
-        echo "<br>";
+        // echo $sql;
+        // echo "<br>";
         return $this->pdo->exec($sql);
     }
 }
@@ -155,5 +155,3 @@ if (!isset($_SESSION['visit'])) {
 }
 
 ?>
-
-    

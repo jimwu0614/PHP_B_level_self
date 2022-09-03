@@ -42,7 +42,7 @@ switch ($from) {
             <input type="hidden" name="id" value="<?=$_GET['id']?>">
         </tr>
         <tr>
-            <td><input type="submit" value="新增"><input type="reset" value="重置"></td>
+            <td><input type="submit" value="更換"><input type="reset" value="重置"></td>
             <td></td>
         </tr>
     </table>
@@ -105,7 +105,7 @@ switch ($from) {
             <input type="hidden" name="id" value="<?=$_GET['id']?>">
         </tr>
         <tr>
-            <td><input type="submit" value="新增"><input type="reset" value="重置"></td>
+            <td><input type="submit" value="更換"><input type="reset" value="重置"></td>
             <td></td>
         </tr>
     </table>
@@ -115,14 +115,47 @@ switch ($from) {
 
 <?php
         break;
-    case '':
+    case 'add_Image':
     ?>
+
+<h1 class="cent">新增校園映像圖片</h1>
+<hr>
+<form action="./api/update.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="from" value="<?=$from?>">
+    <table class="ma">
+        <tr>
+            <td>校園映像圖片:</td>
+            <td><input type="file" name="img"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="新增"><input type="reset" value="重置"></td>
+            <td></td>
+        </tr>
+    </table>
+</form>
 
 
 <?php
         break;
-    case '':
+    case 'edit_Image':
     ?>
+
+<h1 class="cent">更換校園映像圖片</h1>
+<hr>
+<form action="./api/update.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="from" value="<?=$from?>">
+    <table class="ma">
+        <tr>
+            <td>校園映像圖片:</td>
+            <td><input type="file" name="img"></td>
+            <input type="hidden" name="id" value="<?=$_GET['id']?>">
+        </tr>
+        <tr>
+            <td><input type="submit" value="更換"><input type="reset" value="重置"></td>
+            <td></td>
+        </tr>
+    </table>
+</form>
 
 
 <?php
