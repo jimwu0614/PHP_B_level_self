@@ -23,7 +23,20 @@
                 <span><?=mb_substr($value['text'],0,15)?>...</span>
                 <span style="display: none;"><?=$value['text']?></span>
             </td>
-            <td></td>
+            <td>
+                <?php
+                if (isset($_SESSION['user'])) {
+                    $good = $Log->math('count','id',['user'=>$_SESSION['user'],'good'=>$value['id']]);
+                    if ($good) {                        
+                        echo "<span data-id='{$value['id']}' class='blue good'>收回讚</span>";
+                    } else {
+                        echo "<span data-id='{$value['id']}' class='blue good'>讚</span>";
+                    }
+                    
+                }
+                ?>
+                
+            </td>
         </tr>
         <?php
             }
@@ -49,7 +62,19 @@
 </fieldset>
 <script>
     $(".title").on("click",function(){
-        let gg = $(this).text()
-        console.log(gg);
+         $(this).next().children().toggle()
+    })
+    $(".good").on("click",function(){
+        let good = $(this).text();
+        let id = $(this).data('id');
+        console.log(id);
+        if (good=="讚") {
+            $(this).text('收回讚')
+        } else {
+            $(this).text('讚')
+        }
+        $.post("./api/good.php",{good,id},()=>{
+            location.reload()
+        })
     })
 </script>

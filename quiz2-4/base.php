@@ -25,7 +25,7 @@ class DB {
 
 
     function all(...$arg){
-        $sql = "SELECT * FROM $this->table";
+        $sql = "SELECT * FROM $this->table ";
         if (isset($arg[0])) {
             if (is_array($arg[0])) {
              foreach ($arg[0] as $key => $value) {
@@ -121,7 +121,7 @@ $User = new DB('user');
 $Guest = new DB("guest");
 $News = new DB("news");
 $Que = new DB("que");
-$Good = new DB("good");
+$Log = new DB("log");
 
 
 $today = date("Y-m-d");
