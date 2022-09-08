@@ -37,7 +37,7 @@ a:hover
 {
 	padding: 2px;
 	width: 1024px;
-	height: 768px;
+	height: 830px;
 	background: #FFF;
 	margin: 10px auto 10px auto;
 	box-shadow: #999 0px 0px 1px .3px;
@@ -115,10 +115,7 @@ input:active,button:active,.button:active,select:active,textarea:active
 	background:#333;
 	color:#fff;
 }
-input[type=text],input[type=password]
-{
-	width:150px;
-}
+
 input:focus,button:focus,.button:focus,select:focus,textarea:focus
 {
 	box-shadow:#09C 0px 0px 3px .3px;
@@ -296,4 +293,55 @@ cursor:default;
 	left:0px;
 	right:0px;
 	margin:auto;
+}
+.flex{
+	display: flex;
+	flex-wrap: wrap;
+}
+.w100{
+	width: 100%;
+}
+.w90{
+	width: 90%;
+}
+.w80{
+	width: 80%;
+}
+.w70{
+	width: 70%;
+}
+.w60{
+	width: 60%;
+}
+.w50{
+	width: 50%;
+}
+.w40{
+	width: 40%;
+}
+.w30{
+	width: 30%;
+}
+.w20{
+	width: 20%;
+}
+.w10{
+	width: 10%;
+}
+.w5{
+	width: 5%;
+}
+.w45{
+	width: 45%;
+}
+.blue{
+	color: blue;
+	cursor: pointer;
+}
+marquee{
+	display: inline-block;
+	width: 80%;
+}
+.ma{
+	margin: 10px auto;
 }

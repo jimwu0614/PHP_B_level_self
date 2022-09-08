@@ -37,20 +37,12 @@ include_once "./base.php";
 				<div>
 					<marquee behavior="" direction="">跑馬燈  請民眾......</marquee>
 					<span style="width:19%; display:inline-block;">
-					<?php
-						if (isset($_SESSION['user']) && $_SESSION['user']=="admin") {
-						    echo "歡迎，{$_SESSION['user']}<br><a href='./back.php'><button>管理</button></a>|<a href='./api/logout.php'><button>登出</button></a>";
-						} else if(isset($_SESSION['user'])){
-						    echo "歡迎，{$_SESSION['user']}<a href='./api/logout.php'><button>登出</button></a>";
-						}else{
-						    echo "<a href='?do=login'>會員登入</a>";
-						}
-					?>
+						<a href="./api/logout.php">會員登出</a>
 					</span>
 					<div class="container">
 						<?php
 						$do = $_GET['do']??'main';
-						include "./front/$do.php";
+						include "./back/$do.php";
 						?>
 					</div>
 				</div>
