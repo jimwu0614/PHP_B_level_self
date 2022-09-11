@@ -173,9 +173,28 @@ switch ($from) {
         <?php
         break;
     
-    case 'value':
+    case 'addAdmin':
         ?>
-
+        <h1 class="ct">新增管理者帳號</h1>
+        <hr>
+        <form action="./api/update.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="from" value="<?=$from?>">
+            <table class="w80 ma">
+                <tr>
+                    <td>帳號:</td>
+                    <td><input type="text" name="acc" ></td>
+                </tr>
+                <tr>
+                    <td>密碼:</td>
+                    <td><input type="password" name="pw" ></td>
+                </tr>
+                <tr>
+                    <td>確認密碼:</td>
+                    <td><input type="password" name="pw2" ></td>
+                </tr>
+            </table>
+            <div class="ct"><input type="submit" value="新增"><input type="reset" value="重置"></div>
+        </form>
         <?php
         break;
     

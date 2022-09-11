@@ -66,8 +66,9 @@ switch ($from) {
         to('../back.php?do=news');
         break;
     
-    case 'value':
-
+    case 'addAdmin':
+        $Admin->save(['acc'=>$_POST['acc'],'pw'=>$_POST['pw']]);
+        to('../back.php?do=admin');
         break;
     
     case 'value':

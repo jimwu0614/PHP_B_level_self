@@ -122,8 +122,22 @@ switch ($from) {
         to('../back.php?do=news');
         break;
     
-    case 'value':
+    case 'Admin':
+        if (isset($_POST['del'])) {
+            foreach ($_POST['id'] as $key => $value) {
+                if (in_array($value,$_POST['del'])) {
+                    $Admin->del($value);
+                }
+            }
+        }
 
+        
+        foreach ($_POST['id'] as $key => $value) {
+            $Admin->save(['id'=>$value,'acc'=>$_POST['acc'][$key],'pw'=>$_POST['pw'][$key]]);
+        }
+        
+
+        to('../back.php?do=admin');
         break;
     
     case 'value':
