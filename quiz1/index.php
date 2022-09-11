@@ -24,7 +24,7 @@ include_once "./base.php";
 	<iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
 		<a title="" href="./index.php">
-			<div class="ti" style="background:url('./img/<?=$Title->find(['sh'=>1])['img']?>'); background-size:cover;"></div>
+			<div class="ti" style="background:url('./img/<?= $Title->find(['sh' => 1])['img'] ?>'); background-size:cover;"></div>
 			<!--標題-->
 		</a>
 		<div id="ms">
@@ -35,22 +35,21 @@ include_once "./base.php";
 
 					<div class="flex col">
 						<?php
-							$rows = $Menu->all(['sh'=>1,'parent'=>0]);
-							foreach ($rows as $key => $value) {
-			
-								echo"<div class='mainmu w80'>";
-								echo"	<a href='{$value['url']}' >{$value['text']}</a>";
-								
-								$subs = $Menu->all(['sh'=>1,'parent'=>$value['id']]);
-								foreach($subs as $sub){
-									echo "<div class='mw mainmu2'>";
-									echo "	<a href='{$sub['url']}'>{$sub['text']}</a>";
-									echo "</div>";
-								}
-								echo"</div>";
+						$rows = $Menu->all(['sh' => 1, 'parent' => 0]);
+						foreach ($rows as $key => $value) {
 
+							echo "<div class='mainmu w80'>";
+							echo "	<a href='{$value['url']}' >{$value['text']}</a>";
+
+							$subs = $Menu->all(['sh' => 1, 'parent' => $value['id']]);
+							foreach ($subs as $sub) {
+								echo "<div class='mw mainmu2'>";
+								echo "	<a href='{$sub['url']}'>{$sub['text']}</a>";
+								echo "</div>";
 							}
-						
+							echo "</div>";
+						}
+
 						?>
 
 
@@ -58,13 +57,13 @@ include_once "./base.php";
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 :
-						<?=$Total->find(1)['total']?> </span>
+						<?= $Total->find(1)['total'] ?> </span>
 				</div>
 			</div>
 
 			<?php
 
-			$do=$_GET['do']??'main';
+			$do = $_GET['do'] ?? 'main';
 			include "./front/$do.php"
 			?>
 
@@ -75,28 +74,28 @@ include_once "./base.php";
 				<!--右邊-->
 				<?php
 				if (isset($_SESSION['admin'])) {
-					?>
-				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="location.href='./api/logout.php'">管理登出</button>
-					<?php
+				?>
+					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="location.href='./api/logout.php'">管理登出</button>
+				<?php
 				} else {
-					?>
-				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
-					<?php
+				?>
+					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
+				<?php
 				}
-				
+
 				?>
 				<div style="width:89%; height:480px;" class="dbor ">
 					<span class="t botli">校園映象區</span>
 					<div class="flex col">
 						<div onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
-		<?php
-			$imgs = $Image->all(['sh'=>1]);
-			foreach ($imgs as $key => $value) {
-		?>
-						<div class="im" id="ssaa<?=$key?>"><img class="img" src="./img/<?=$value['img']?>" alt=""></div>
-		<?php
-			}
-		?>
+						<?php
+						$imgs = $Image->all(['sh' => 1]);
+						foreach ($imgs as $key => $value) {
+						?>
+						<div class="im" id="ssaa<?= $key ?>"><img class="img" src="./img/<?= $value['img'] ?>" alt=""></div>
+						<?php
+						}
+						?>
 						<div onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div>
 
 					</div>
@@ -113,7 +112,7 @@ include_once "./base.php";
 								nowpage++;
 							}
 							$(".im").hide()
-							for (s = 0; s <= 2; s++) { 
+							for (s = 0; s <= 2; s++) {
 								t = s * 1 + nowpage * 1;
 								$("#ssaa" + t).show()
 							}
@@ -125,7 +124,7 @@ include_once "./base.php";
 		</div>
 		<div style="clear:both;"></div>
 		<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-			<span class="t" style="line-height:123px;"><?=$Bottom->find(1)['text']?></span>
+			<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['text'] ?></span>
 		</div>
 	</div>
 
