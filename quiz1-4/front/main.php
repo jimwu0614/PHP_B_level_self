@@ -36,9 +36,26 @@
     </script>
 
     <div style="width:95%; padding:2px; height:190px; margin-top:10px; padding:5px 10px 5px 10px; border:#0C3 dashed 3px; position:relative;">
-        <span class="t botli">最新消息區
-        </span>
+        <div class="flex ja">
+            <span >最新消息區</span>
+            <span class="more"><a href="?do=news">More...</a></span>
+        </div>
+        <hr>
+
         <ul class="ssaa" style="list-style-type:decimal;">
+        <?php
+        $news = $News->all(['sh'=>1],'limit 5');
+        foreach ($news as $key => $value) {
+        ?>
+        <li>
+            <?=mb_substr($value['text'],0,15)?>
+            <div class="all" style="display: none;">
+                <?=$value['text']?>
+            </div>
+        </li>
+        <?php
+        }
+        ?>
         </ul>
         <div id="altt" style="position: absolute; width: 350px; min-height: 100px; background-color: rgb(255, 255, 204); top: 50px; left: 130px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;">
         </div>

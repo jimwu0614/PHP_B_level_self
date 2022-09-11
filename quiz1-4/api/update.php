@@ -61,8 +61,9 @@ switch ($from) {
         to('../back.php?do=image');
         break;
     
-    case 'value':
-
+    case 'addNews':
+        $News->save(['text'=>$_POST['text']]);
+        to('../back.php?do=news');
         break;
     
     case 'value':

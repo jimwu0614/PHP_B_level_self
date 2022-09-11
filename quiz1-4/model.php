@@ -51,7 +51,7 @@ switch ($from) {
     
     case 'addAd':
         ?>
-        <h1 class="ct">更新動態文字廣告</h1>
+        <h1 class="ct">新增動態文字廣告</h1>
         <hr>
         <form action="./api/update.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="from" value="<?=$from?>">
@@ -154,9 +154,22 @@ switch ($from) {
         <?php
         break;
     
-    case 'value':
+    case 'addNews':
         ?>
+        <h1 class="ct">新增最新消息資料</h1>
+        <hr>
+        <form action="./api/update.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="from" value="<?=$from?>">
+            <table class="w80 ma">
 
+                <tr>
+                    <td class="w30">最新消息資料:</td>
+                    <td><textarea name="text"  cols="50" rows="3"></textarea></td>
+                </tr>
+
+            </table>
+            <div class="ct"><input type="submit" value="新增"><input type="reset" value="重置"></div>
+        </form>
         <?php
         break;
     
