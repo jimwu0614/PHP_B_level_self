@@ -63,9 +63,23 @@ include "./base.php";
 				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=admin')">管理登入</button>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
+					<div class="col">
+						<div class="ct" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
+						
+					<?php
+						$img = $Image->all(['sh'=>1]);
+						foreach ($img as $key => $value) {
+					?>
+						<div class="im ct" id="ssaa<?=$key?>"><img src="./upload/<?=$value['img']?>" alt="" class="imgg"></div>
+					<?php
+						}
+					?>
+						
+						<div class="ct" onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div>
+					</div>
 					<script>
 						var nowpage = 0,
-							num = 0;
+							num = 99;
 
 						function pp(x) {
 							var s, t;
@@ -76,7 +90,7 @@ include "./base.php";
 								nowpage++;
 							}
 							$(".im").hide()
-							for (s = 0; s <= 2; s++) {
+							for (s = 0; s <= 2; s++) { 
 								t = s * 1 + nowpage * 1;
 								$("#ssaa" + t).show()
 							}

@@ -88,6 +88,7 @@ switch ($from) {
             </table>
         </form>
         <?php
+        break;
     
     case 'editMvim':
         ?>
@@ -110,15 +111,46 @@ switch ($from) {
         <?php
         break;
     
-    case 'value':
+    case 'addImage':
         ?>
+        <h1 class="ct">新增校園映像圖片</h1>
+        <hr>
+        <form action="./api/update.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="from" value="<?=$from?>">
+            <table class="w80 ma">
+                <tr>
+                    <td>校園映像圖片:</td>
+                    <td><input type="file" name="img" id=""></td>
+                </tr>
 
+                <tr>
+                    <td><input type="submit" value="新增"><input type="reset" value="重置"></td>
+                    <td></td>
+                </tr>
+            </tr>
+            </table>
+        </form>
         <?php
         break;
     
-    case 'value':
+    case 'editImage':
         ?>
+        <h1 class="ct">更新校園映像圖片</h1>
+        <hr>
+        <form action="./api/update.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="from" value="<?=$from?>">
+            <table class="w80 ma">
+                <tr>
+                    <td>校園映像圖片:</td>
+                    <td><input type="file" name="img" id=""></td>
+                </tr>
 
+                <tr>
+                    <td><input type="submit" value="更新"><input type="reset" value="重置"></td>
+                    <td><input type="hidden" name="id" value="<?=$_GET['id']?>"></td>
+                </tr>
+            </table>
+        </form>
         <?php
         break;
     

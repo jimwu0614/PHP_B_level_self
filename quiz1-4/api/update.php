@@ -39,16 +39,26 @@ switch ($from) {
         if (isset($img['tmp_name'])) {
             move_uploaded_file("{$img['tmp_name']}","../upload/{$img['name']}");
         }
-        $Ad->save(['id'=>$_POST['id'],'img'=>$img['name']]);
-        to('../back.php?do=ad');
+        $Mvim->save(['id'=>$_POST['id'],'img'=>$img['name']]);
+        to('../back.php?do=mvim');
         break;
     
-    case 'value':
-
+    case 'addImage':
+        $img = $_FILES['img'];
+        if (isset($img['tmp_name'])) {
+            move_uploaded_file("{$img['tmp_name']}","../upload/{$img['name']}");
+        }
+        $Image->save(['img'=>$img['name']]);
+        to('../back.php?do=image');
         break;
     
-    case 'value':
-
+    case 'editImage':
+        $img = $_FILES['img'];
+        if (isset($img['tmp_name'])) {
+            move_uploaded_file("{$img['tmp_name']}","../upload/{$img['name']}");
+        }
+        $Image->save(['id'=>$_POST['id'],'img'=>$img['name']]);
+        to('../back.php?do=image');
         break;
     
     case 'value':

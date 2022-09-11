@@ -45,12 +45,49 @@ switch ($from) {
         to('../back.php?do=ad');
         break;
     
-    case 'value':
+    case 'Mvim':
 
+        if (isset($_POST['del'])) {
+            foreach ($_POST['id'] as $key => $value) {
+                if (in_array($value,$_POST['del'])) {
+                    $Mvim->del($value);
+                }
+            }
+        }
+
+        if (isset($_POST['sh'])) {
+            foreach ($_POST['id'] as $key => $value) {
+                if (in_array($value,$_POST['sh'])) {
+                    $Mvim->save(['id'=>$value,'sh'=>1]);
+                }else{
+                    $Mvim->save(['id'=>$value,'sh'=>0]);
+                }
+            }
+        }
+
+        to('../back.php?do=mvim');
         break;
     
-    case 'value':
+    case 'Image':
+        if (isset($_POST['del'])) {
+            foreach ($_POST['id'] as $key => $value) {
+                if (in_array($value,$_POST['del'])) {
+                    $Image->del($value);
+                }
+            }
+        }
 
+        if (isset($_POST['sh'])) {
+            foreach ($_POST['id'] as $key => $value) {
+                if (in_array($value,$_POST['sh'])) {
+                    $Image->save(['id'=>$value,'sh'=>1]);
+                }else{
+                    $Image->save(['id'=>$value,'sh'=>0]);
+                }
+            }
+        }
+
+        to('../back.php?do=image');
         break;
     
     case 'value':

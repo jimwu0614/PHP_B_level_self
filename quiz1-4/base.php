@@ -26,15 +26,15 @@ class DB{
             foreach ($ary as $key => $value) {
                 $tmp[] = "`$key` = '$value'";
             }
-            $sql = "UPDATE `$this->table` SET". join(" , ",$tmp) ."WHERE `id` = {$ary['id']}";
+            $sql = "UPDATE `$this->table` SET". join(" , ",$tmp) ." WHERE `id` = {$ary['id']}";
         }else{
             
             $key = join("` , `",array_keys($ary));
             $val = join("' , '",$ary);
             $sql = "INSERT INTO `$this->table` (`$key`) VALUES ('$val')";
         }
-        echo $sql;
-        echo "<br>";
+        // echo $sql;
+        // echo "<br>";
         return $this->pdo->exec($sql);
     }
 
