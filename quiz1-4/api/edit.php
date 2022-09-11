@@ -140,33 +140,24 @@ switch ($from) {
         to('../back.php?do=admin');
         break;
     
-    case 'value':
+    case 'Menu':
+        if (isset($_POST['del'])) {
+            foreach ($_POST['id'] as $key => $value) {
+                if (in_array($value,$_POST['del'])) {
+                    $Menu->del($value);
+                }
+            }
+        }
 
+       
+            foreach ($_POST['id'] as $key => $value) {
+                $Menu->save(['id'=>$value,'text'=>$_POST['text'][$key],'url'=>$_POST['url'][$key]]);                
+            }
+        
+            to('../back.php?do=menu');
         break;
     
-    case 'value':
 
-        break;
-    
-    case 'value':
-
-        break;
-    
-    case 'value':
-
-        break;
-    
-    case 'value':
-
-        break;
-    
-    case 'value':
-
-        break;
-    
-    case 'value':
-
-        break;
     
  
 }

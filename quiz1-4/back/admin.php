@@ -12,7 +12,7 @@
             <tbody>
                 <tr class="yel">
                     <td class="w40">帳號</td>
-                    <td class="w40">密碼/td>
+                    <td class="w40">密碼</td>
                     <td class="w20">刪除</td>
                 </tr>
                 <?php

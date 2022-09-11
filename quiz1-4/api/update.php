@@ -71,11 +71,32 @@ switch ($from) {
         to('../back.php?do=admin');
         break;
     
-    case 'value':
-
+    case 'addMenu':
+        $Menu->save(['text'=>$_POST['text'],'url'=>$_POST['url']]);
+        to('../back.php?do=menu');
         break;
     
-    case 'value':
+    case 'editMenu':
+        if (isset($_POST['del'])) {
+            foreach ($_POST['id'] as $key => $value) {
+                if (in_array($value,$_POST['del'])) {
+                    $Menu->del($value);
+                }
+            }
+        }
+
+        if (isset($_POST['text1'])&&isset($_POST['url1'])) {
+            foreach ($_POST['id'] as $key => $value) {
+                $Menu->save(['id'=>$value,'text'=>$_POST['text1'][$key],'url'=>$_POST['url1'][$key]]);                
+            }
+        }
+
+        if (isset($_POST['text2'])&&isset($_POST['url2'])) {
+            foreach ($_POST['text2'] as $key => $value) {
+                $Menu->save(['text'=>$value,'url'=>$_POST['url2'][$key],'parent'=>$_POST['parent']]);                
+            }
+        }
+        to('../back.php?do=menu');
 
         break;
     

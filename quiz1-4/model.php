@@ -1,4 +1,5 @@
 <?php
+include_once "./base.php";
 $from = $_GET['from'];
 switch ($from) {
     case 'addTitle':
@@ -198,9 +199,60 @@ switch ($from) {
         <?php
         break;
     
-    case 'value':
+    case 'addMenu':
+        ?>
+        <h1 class="ct">新增主選單</h1>
+        <hr>
+        <form action="./api/update.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="from" value="<?=$from?>">
+            <table class="w80 ma ct">
+                <tr>
+                    <td>主選單名稱:</td>
+                    <td>主選單連結網址:</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="text" ></td>
+                    <td><input type="text" name="url" ></td>
+                </tr>
+            </table>
+            <div class="ct"><input type="submit" value="新增"><input type="reset" value="重置"></div>
+        </form>
+        <?php
+        break;
+    
+    case 'editMenu':
+        ?>
+        <h1 class="ct">編輯次選單</h1>
+        <hr>
+        <form action="./api/update.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="from" value="<?=$from?>">
+            <table class="w80 ma ct" id="table">
+                <tr id="thead">
+                    <td>主選單名稱:</td>
+                    <td>主選單連結網址:</td>
+                    <td></td>
+                </tr>
+        <?php
+            $parent = $_GET['id'];
+            // echo $parent;
+            $rows = $Menu->all(['parent'=>$parent]);
+            foreach ($rows as $key => $value) {
+        ?>
+                <tr>
+                    <td><input type="text" name="text1[]" value="<?=$value['text']?>"></td>
+                    <td><input type="text" name="url1[]" value="<?=$value['url']?>"></td>
+                    <td><input type="checkbox" name="del[]" value="<?=$value['id']?>"></td>
+                </tr>
+                <input type="hidden" name="id[]" value="<?=$value['id']?>">
+        <?php
+            }
         ?>
 
+
+            </table>
+            <input type="hidden" name="parent" value="<?=$parent?>">
+            <div class="ct"><input type="submit" value="修改確定"><input type="reset" value="重置"><input type="button" onclick="more()" value="更多次選單"></div>
+        </form>
         <?php
         break;
     
@@ -215,38 +267,15 @@ switch ($from) {
 
         <?php
         break;
-    
-    case 'value':
-        ?>
-
-        <?php
-        break;
-    
-    case 'value':
-        ?>
-
-        <?php
-        break;
-    
-    case 'value':
-        ?>
-
-        <?php
-        break;
-    
-    case 'value':
-        ?>
-
-        <?php
-        break;
-    
-    case 'value':
-        ?>
-
-        <?php
-        break;
-    
-
-        
+            
 }
 ?>
+<script>
+    function more(){
+        $("#table").append(`<tr>
+                                <td><input type="text" name="text2[]" ></td>
+                                <td><input type="text" name="url2[]" ></td>
+                                <td></td>
+                            </tr>`);
+    }
+</script>

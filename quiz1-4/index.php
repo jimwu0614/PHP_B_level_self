@@ -32,6 +32,28 @@ include "./base.php";
 				<div id="menuput" class="dbor">
 					<!--主選單放此-->
 					<span class="t botli">主選單區</span>
+					<div class="col">
+						<?php
+							$menus = $Menu->all(['parent'=>0]);
+							foreach ($menus as $key => $value) {
+						?>
+						<div class="mainmu">
+							<a href="<?=$value['url']?>"><?=$value['text']?></a>
+							<?php
+							$sons = $Menu->all(['parent'=>$value['id']]);
+							foreach ($sons as $key => $value2) {
+							?>
+							<div class="mw mainmu2">
+								<a href="<?=$value2['url']?>"><?=$value2['text']?></a>
+							</div>
+							<?php
+							}
+							?>
+						</div>
+						<?php
+							}
+						?>
+					</div>
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 :
