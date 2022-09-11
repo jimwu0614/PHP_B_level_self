@@ -90,12 +90,14 @@ switch ($from) {
         to('../back.php?do=image');
         break;
     
-    case 'value':
-
+    case 'Total':
+        $Total->save(['id'=>1,'total'=>$_POST['total']]);
+        to('../back.php?do=total');
         break;
     
-    case 'value':
-
+    case 'Bottom':
+        $Bottom->save(['id'=>1,'text'=>$_POST['text']]);
+        to('../back.php?do=bottom');
         break;
     
     case 'value':
